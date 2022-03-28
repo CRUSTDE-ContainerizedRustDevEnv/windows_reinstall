@@ -12,7 +12,7 @@ I made a detailed description in <https://github.com/LucianoBestia/win10_wsl2_de
 For Rust development for Linux I have the container `rust_dev_cnt` created from the image `rust_dev_vscode_img` that I described here <https://github.com/LucianoBestia/docker_rust_development>.  
 This container is ephemeral and can be destroyed any time. The important files inside it must be pushed to Github, else they will be destroyed with the container.  
 
-![container_rust_dev_cnt_github_v2.plantuml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/LucianoBestia/development_environment/main/images/container_rust_dev_cnt_github_v2.plantuml)
+![container_rust_dev_cnt_github_v3.plantuml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/LucianoBestia/development_environment/main/images/container_rust_dev_cnt_github_v3.plantuml)
 
 ## Github
 
@@ -21,4 +21,4 @@ They can cancel all my files in a second without warning. It happened to Iranian
 I want to be sure that Github is not the only place where my code is stored. I will prepare a folder on my computer to have backups of the Github projects. I will call the folder `BestiaDev`.  
 Today I manually cloned all my Github projects. Later I can `git pull` them and have it as a backup on my notebook disk. TODO: prepare a utility that automates this process.  
 
-![folder_bestiadev_github_v2.plantuml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/LucianoBestia/development_environment/main/images/folder_bestiadev_github_v2.plantuml)
+![folder_bestiadev_github_v3.plantuml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/LucianoBestia/development_environment/main/images/folder_bestiadev_github_v3.plantuml)

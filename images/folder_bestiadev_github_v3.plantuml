@@ -1,0 +1,4 @@
+@startuml name folder_bestiadev_github_v3
+' make backup from github with git clone and git pull
+Github -> folder BestaDev: clone/pull
+@enduml
