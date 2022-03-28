@@ -31,8 +31,8 @@ TODO: prepare a utility that automates this process.
 ```mermaid
 sequenceDiagram
     participant Github
-    participant folder dev_besta_backup    
-    Github->>folder dev_besta_backup: clone, pull
+    participant dev_bestia_backup/
+    Github->> dev_bestia_backup/: clone, pull
 ```
 
 ## Dropbox
@@ -43,10 +43,10 @@ I use my app [dropbox_backup_to_external_disk](https://github.com/LucianoBestia/
 
 ```mermaid
 sequenceDiagram
-    participant folder dev_besta_backup
+    participant dev_bestia_backup/
     participant Dropbox
     participant ext.hd backup
-    folder dev_besta_backup->>Dropbox: automatic sync
+    dev_bestia_backup/->>Dropbox: automatic sync
     Dropbox->>ext.hd backup: backup 1    
 ```
 
