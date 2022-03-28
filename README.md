@@ -12,7 +12,7 @@ I made a detailed description in <https://github.com/LucianoBestia/win10_wsl2_de
 For Rust development for Linux I have the container `rust_dev_cnt` created from the image `rust_dev_vscode_img` that I described here <https://github.com/LucianoBestia/docker_rust_development>.  
 This container is ephemeral and can be destroyed any time. The important files inside it must be pushed to Github, else they will be destroyed with the container.  
 
-![container_rust_dev_cnt_github_v1.plantuml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/LucianoBestia/development_environment/main/images/container_rust_dev_cnt_github_v1.plantuml)
+![container_rust_dev_cnt_github_v2.plantuml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/LucianoBestia/development_environment/main/images/container_rust_dev_cnt_github_v2.plantuml)
 
 ## Github
 
