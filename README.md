@@ -21,4 +21,4 @@ They can cancel all my files in a second without warning. It happened to Iranian
 I want to be sure that Github is not the only place where my code is stored. I will prepare a folder on my computer to have backups of the Github projects. I will call the folder `BestiaDev`.  
 Today I manually cloned all my Github projects. Later I can `git pull` them and have it as a backup on my notebook disk. TODO: prepare a utility that automates this process.  
 
-![folder_bestiadev_github_v3.plantuml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/LucianoBestia/development_environment/main/images/folder_bestiadev_github_v3.plantuml)
+![folder_bestiadev_github_v4.plantuml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/LucianoBestia/development_environment/main/images/folder_bestiadev_github_v4.plantuml)
