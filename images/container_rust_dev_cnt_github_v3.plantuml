@@ -1,5 +1,0 @@
-@startuml name container_rust_dev_cnt_github_v3
-' how the container clone/pull and push files to Github
-Github -> container: clone/pull
-container -> Github: push
-@enduml
