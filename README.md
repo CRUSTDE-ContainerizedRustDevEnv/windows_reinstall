@@ -1,15 +1,15 @@
 # development_environment
 
 **Description of my development environment for Rust**  
-***version: 1.0  date: 2022-03-28 author: [dev_Bestia](https://bestia.dev) repository: [GitHub](https://github.com/LucianoBestia/development_environment)***  
+***version: 1.0  date: 2022-03-28 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/development_environment)***  
 
 ## Rust on Linux
 
 This days I mostly program with Rust on Linux.  
 My primary desktop is Win10. Inside it I have WSL2, which is a Linux Virtual Machine. There I installed Debian 11 Bullseye.  
-I made a detailed description in <https://github.com/LucianoBestia/win10_wsl2_debian11>.
+I made a detailed description in <https://github.com/bestia-dev/win10_wsl2_debian11>.
 
-For Rust development for Linux I have the container `rust_dev_cnt` created from the image `rust_dev_vscode_img` that I described here <https://github.com/LucianoBestia/docker_rust_development>.  
+For Rust development for Linux I have the container `rust_dev_cnt` created from the image `rust_dev_vscode_img` that I described here <https://github.com/bestia-dev/docker_rust_development>.  
 This container is ephemeral and can be destroyed any time. The important files inside it must be pushed to Github, else they will be destroyed with the container.  
 
 ```mermaid
@@ -39,7 +39,7 @@ sequenceDiagram
 
 I have a 2TB storage on Dropbox for 12€/month. It is not cheap, but I had bad experience with GoogleDrive and OneDrive in the early days. Maybe they are better now, but I don't want to retry everything. I am a paying customer, so I expect some responsability from Dropbox. Maybe I am just delusional. They can go bankrupt in a metter of hours with modern financial games.  
 I am putting all my eggs in the basket of Dropbox, but here and there I make backups of everything. I make backups on 2 external hard drives and I keep them in separate houses. Just for fun.  
-I use my app [dropbox_backup_to_external_disk](https://github.com/LucianoBestia/dropbox_backup_to_external_disk) to make backups of Dropbox, because Dropbox does not have an app for that. Shame on them.
+I use my app [dropbox_backup_to_external_disk](https://github.com/bestia-dev/dropbox_backup_to_external_disk) to make backups of Dropbox, because Dropbox does not have an app for that. Shame on them.
 
 ```mermaid
 sequenceDiagram
@@ -56,7 +56,8 @@ When I want to make an app for android I have to use Android Studio in Win10. Al
 
 ## Rust on Windows
 
-I don't know how to containerize the rust development on Windows.
+I dno't want to install rust on my windows machine.
+Maybe use a cross compile inside the Linux container?
 
 ## websites
 
@@ -69,7 +70,21 @@ The local folder is synced with Dropbox.
 My open-source projects are free as a beer (MIT license).  
 I just love programming.  
 But I need also to drink. If you find my projects and tutorials helpful,  
-please buy me a beer donating on my [paypal](https://www.paypal.com/paypalme/LucianoBestia).  
+please buy me a beer donating on my [paypal](https://paypal.me/LucianoBestia).  
 You know the price of a beer in your local bar ;-)  
 So I can drink a free beer for your health :-)  
 [Na zdravje!](https://translate.google.com/?hl=en&sl=sl&tl=en&text=Na%20zdravje&op=translate) [Alla salute!](https://dictionary.cambridge.org/dictionary/italian-english/alla-salute) [Prost!](https://dictionary.cambridge.org/dictionary/german-english/prost) [Nazdravlje!](https://matadornetwork.com/nights/how-to-say-cheers-in-50-languages/) 🍻
+
+## confusion with names
+
+Sadly, it is not possible to use the same "name" everywhere, because there are always some limitation what characters are allowed.
+Alphanumerics are allowed everywhere, but dot, hyphen, underscore are not.
+Also uppercase and lowercase can be limited.
+
+Variants of the name:
+
+bestia.dev - domain, preferred
+bestiadev  - docker
+bestia-dev - gitub (bestiadev is NOT available 2022-03)
+dev.bestia@gmail.com  (bestia.dev is NOT available 2022-03, but it is not in use)
+info@bestia.dev - is forwarded to dev.bestia@gmail.com
