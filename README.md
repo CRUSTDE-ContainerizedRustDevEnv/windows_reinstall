@@ -88,3 +88,16 @@ bestiadev  - docker
 bestia-dev - gitub (bestiadev is NOT available 2022-03)
 dev.bestia@gmail.com  (bestia.dev is NOT available 2022-03, but it is not in use)
 info@bestia.dev - is forwarded to dev.bestia@gmail.com
+
+## LF or CRLF
+
+Linux uses end-of-line (eol) LF, but windows uses CRLF. It can be super confusing, because some tools even make aut-correction of that.  
+In windows I fixed git to LF:
+
+```bash
+ git config --global core.eol lf
+ git config --global core.autocrlf input
+ ```
+
+ and in VSCode I changed setting `files.eol` to LF.  
+ 
