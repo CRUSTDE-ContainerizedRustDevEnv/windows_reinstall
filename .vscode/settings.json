@@ -3,9 +3,12 @@
         "Alla",
         "autocrlf",
         "bestiadev",
+        "buildtool",
+        "developmenttool",
         "gitub",
         "Nazdravlje",
         "Prost",
+        "rustlang",
         "zdravje"
     ]
 }
