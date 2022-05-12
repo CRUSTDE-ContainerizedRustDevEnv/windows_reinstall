@@ -25,11 +25,11 @@ This container is ephemeral and can be destroyed any time. The important files i
 ```plantuml
 @startuml
 Github -> container: clone, pull
-container--> Github: push
+container -> Github: push
 @enduml
 ```
 
-![svg_H902hFbOel2SnaQp-rzXyRdxRHN3EqGcwCE28TJsPpQ](https://github.com/bestia-dev/development_environment/raw/main/images/svg_H902hFbOel2SnaQp-rzXyRdxRHN3EqGcwCE28TJsPpQ.svg)
+![svg_vB2WxbVK7QGYOk81Hb1EJ9caUrLrczZrtnpvVc8jq-U](https://github.com/bestia-dev/development_environment/raw/main/images/svg_vB2WxbVK7QGYOk81Hb1EJ9caUrLrczZrtnpvVc8jq-U.svg)
 
 [comment]: # (auto_plantuml end)
 
@@ -59,31 +59,37 @@ I have a 2TB storage on Dropbox for 12€/month. It is not cheap, but I had bad 
 I am putting all my eggs in the basket of Dropbox, but eventually I make backups of all this files. I make backups on 2 external hard drives and I keep them in separate houses. Just for fun.  
 I use my app [dropbox_backup_to_external_disk](https://github.com/bestia-dev/dropbox_backup_to_external_disk) to make backups of Dropbox, because Dropbox does not have an app for that. Shame on them.
 
-```mermaid
-sequenceDiagram
-    participant github_backup
-    participant Dropbox
-    participant ext.hd backup
-    github_backup->>Dropbox: automatic sync
-    Dropbox->>ext.hd backup: backup    
+[comment]: # (auto_plantuml start)
+
+```plantuml
+@startuml
+github_backup -> Dropbox: automatic sync
+Dropbox -> ext.hd_backup: backup
+@enduml 
 ```
+
+![svg_BdBz_rf1fMmZ38Dg0YUX6ABlKcjkQSlj0c8Tcl-TiJU](https://github.com/bestia-dev/development_environment/raw/main/images/svg_BdBz_rf1fMmZ38Dg0YUX6ABlKcjkQSlj0c8Tcl-TiJU.svg)
+
+[comment]: # (auto_plantuml end)
 
 ## Android studio
 
 When I want to make an app for android I have to use Android Studio in Win10. All the files are pushed to Github. And from there they are automatically synced with github_backup. The complete diagram: 
 
-```mermaid
-sequenceDiagram
-    participant android studio
-    participant Github
-    participant github_backup    
-    participant Dropbox
-    participant ext.hd backup
-    android studio->>Github: push
-    Github->>github_backup: pull
-    github_backup->>Dropbox: automatic sync
-    Dropbox->>ext.hd backup: backup    
+[comment]: # (auto_plantuml start)
+
+```plantuml
+@startuml
+android_studio -> Github: push
+Github -> github_backup: pull
+github_backup -> Dropbox: automatic sync
+Dropbox -> ext.hd_backup: backup    
+@enduml
 ```
+
+![svg_QsfNQcr9kVV4p7jZVaPkRnzjus-HrcmiEzVyzUeye3Y](https://github.com/bestia-dev/development_environment/raw/main/images/svg_QsfNQcr9kVV4p7jZVaPkRnzjus-HrcmiEzVyzUeye3Y.svg)
+
+[comment]: # (auto_plantuml end)
 
 These are usually small files and having them go up and down the internet 4 times is not a tragedy. Sure, I could save some time, copying them from one folder to the other locally. Then the sync will just index the files and not send them over the internet.  
 
