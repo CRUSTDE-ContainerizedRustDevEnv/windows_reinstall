@@ -29,6 +29,8 @@ container--> Github: push
 @enduml
 ```
 
+![svg_H902hFbOel2SnaQp-rzXyRdxRHN3EqGcwCE28TJsPpQ](https://github.com/bestia-dev/cargo-auto/raw/main/images/svg_H902hFbOel2SnaQp-rzXyRdxRHN3EqGcwCE28TJsPpQ.svg)
+
 [comment]: # (auto_plantuml end)
 
 ## Github
