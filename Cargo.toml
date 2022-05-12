@@ -1,0 +1,16 @@
+[package]
+name = "development_environment"
+version = "2022.421.1347"
+authors = ["bestia.dev"]
+homepage = "https://bestia.dev"
+edition = "2018"
+description = "Description of my development environment for Rust"
+repository = "https://github.com/bestia-dev/cargo-auto"
+readme = "README.md"
+license = "MIT"
+keywords = ["Rust", "make"]
+categories = ["development-tools::build-utils"]
+publish = false
+
+[dependencies]
+

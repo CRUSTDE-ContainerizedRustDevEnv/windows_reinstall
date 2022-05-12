@@ -1,7 +1,11 @@
 # development_environment
 
+[comment]: # (auto_cargo_toml_to_md start)
+
 **Description of my development environment for Rust**  
-***version: 1.0  date: 2022-03-28 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/development_environment)***  
+***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cargo-auto)***  
+
+[comment]: # (auto_cargo_toml_to_md end)
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbestia-dev%2Fdevelopment_environment&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
@@ -16,13 +20,16 @@ I made a detailed description in <https://github.com/bestia-dev/win10_wsl2_debia
 For Rust development for Linux I have the container `rust_dev_vscode_cnt` created from the image `rust_dev_vscode_img` that I described here <https://github.com/bestia-dev/docker_rust_development>.  
 This container is ephemeral and can be destroyed any time. The important files inside it must be pushed to Github, else they will be destroyed with the container.  
 
-```mermaid
-sequenceDiagram
-    participant Github
-    participant container    
-    Github->>container: clone, pull
-    container->>Github: push    
+[comment]: # (auto_plantuml start)
+
+```plantuml
+@startuml
+Github -> container: clone, pull
+container--> Github: push
+@enduml
 ```
+
+[comment]: # (auto_plantuml end)
 
 ## Github
 
