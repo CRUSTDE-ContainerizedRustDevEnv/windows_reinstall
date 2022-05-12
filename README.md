@@ -3,7 +3,7 @@
 [comment]: # (auto_cargo_toml_to_md start)
 
 **Description of my development environment for Rust**  
-***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cargo-auto)***  
+***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/development_environment)***  
 
 [comment]: # (auto_cargo_toml_to_md end)
 
@@ -29,7 +29,7 @@ container--> Github: push
 @enduml
 ```
 
-![svg_H902hFbOel2SnaQp-rzXyRdxRHN3EqGcwCE28TJsPpQ](https://github.com/bestia-dev/cargo-auto/raw/main/images/svg_H902hFbOel2SnaQp-rzXyRdxRHN3EqGcwCE28TJsPpQ.svg)
+![svg_H902hFbOel2SnaQp-rzXyRdxRHN3EqGcwCE28TJsPpQ](https://github.com/bestia-dev/development_environment/raw/main/images/svg_H902hFbOel2SnaQp-rzXyRdxRHN3EqGcwCE28TJsPpQ.svg)
 
 [comment]: # (auto_plantuml end)
 
@@ -41,12 +41,17 @@ I want to be sure that Github is not the only place where my code is stored. I w
 Today I manually cloned all my Github projects. Later I can `git pull` them and have it as a backup on my notebook disk. This folder is a backup, I will not develop inside this folder.  
 TODO: prepare a utility that automates this process.  
 
-```mermaid
-sequenceDiagram
-    participant Github
-    participant github_backup
-    Github->> github_backup: clone, pull
+[comment]: # (auto_plantuml start)
+
+```plantuml
+@startuml
+Github -> github_backup: clone, pull
+@enduml
 ```
+
+![svg_6yiXGRklquObN1W6QhyR8wBqOoOYGBTcPcjezClme7w](https://github.com/bestia-dev/development_environment/raw/main/images/svg_6yiXGRklquObN1W6QhyR8wBqOoOYGBTcPcjezClme7w.svg)
+
+[comment]: # (auto_plantuml end)
 
 ## Dropbox
 
