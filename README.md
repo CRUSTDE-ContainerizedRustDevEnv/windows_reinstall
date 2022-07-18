@@ -40,7 +40,7 @@ Github is great, but...
 They can cancel all my files in a second without warning. It happened to Iranian programmers when the USA imposed sanctions. It can happen to anybody anytime for any reason. Github is owned by Microsoft, the service is free and they don't have any obligation to the programmer whatsoever. If the service is free, you are not the customer with customer rights, you are the product with no rights whatsoever.  
 I want to be sure that Github is not the only place where my code is stored. I will prepare a folder on my computer to have backups of the Github projects. I will call the folder `github_backup`.  
 Today I manually cloned all my Github projects. Later I can `git pull` them and have it as a backup on my notebook disk. This folder is a backup, I will not develop inside this folder.  
-TODO: prepare a utility that automates this process.  
+I prepared a utility that automates this process: <https://github.com/bestia-dev/github_readme_copy>  
 
 [comment]: # (auto_plantuml start)
 
@@ -103,7 +103,8 @@ Maybe use a cross compile inside the Linux container?
 
 My websites are on a google Linux virtual machine.
 On my local disk I always prepare the files and folders structure for the websites. Then I synchronize this folder with the directory on the VM.
-The local folder is synced with Dropbox. Just for some websites I use Github.  
+It already happened that I deleted my VM on google and had to set a new one from scratch. I wanted a clean start. So having an identical copy on my local disk is paramount.  
+The local folder is synced with Dropbox.  
 
 ## confusion with names
 
@@ -114,7 +115,7 @@ Also uppercase and lowercase can be limited.
 Variants of the name:
 
 bestia.dev - domain name and primary, preferred name  
-info at bestia.dev - is forwarded to dev.bestia@gmail.com  
+info at bestia.dev - is forwarded to dev.bestia at gmail.com  
 bestiadev  - docker  
 bestia-dev - gitub (bestiadev is NOT available 2022-03)  
 dev.bestia at gmail.com  (bestia.dev is NOT available 2022-03, but it is not in use?)  
