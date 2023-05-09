@@ -155,7 +155,25 @@ in every project separately I have to repair if there are CRLF somewhere:
  del dos2unix.exe
  ```
 
-## Open-source and free as a beer
+## Linux shutdown
+
+Now I mostly use to dual-boot into Debian Linux. And there I use Podman to develope in Rust inside a container. Compiling is much faster than inside the WSL. Probably because of file acces. I suppose there are hundreds of small files and that is the major speed difference.  
+The standard Linux shutdown is very slow because of Podman. So I created a small bash script `~/shut.sh`:  
+
+```bash
+#!/bin/sh
+echo 'podman pod stop --all'
+podman pod stop --all
+echo 'podman stop --all'
+podman stop --all
+echo 'shutdown -h now'
+/usr/sbin/shutdown -h now
+```
+
+But the command `shutdown` needs root privileges. I used `sudo chmod +s /usr/sbin/shutdown` to allow me as a normal user to shutdown.  
+Now I write `shut` in the terminal to shutdown the computer faster.  
+
+## open-source and free as a beer
 
 My open-source projects are free as a beer (MIT license).  
 I just love programming.  
