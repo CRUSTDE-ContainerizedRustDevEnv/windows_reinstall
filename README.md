@@ -74,6 +74,22 @@ Dropbox -> ext.hd_backup: backup
 
 [comment]: # (auto_plantuml end)
 
+## Wezterm 
+
+WezTerm is a powerful cross-platform terminal emulator and multiplexer written in Rust.  
+I prefer to use it instead of Windows Console, Windows Terminal, xterm or terminator.  
+I had a problem that using the Windows Cliboard Manager for "multi item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal application, because it does not run a command if it finds a character for Enter when pasting. It waits that the user reads what is pasted and then press Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website there are many technics to hide visually a text, but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
+<https://cirw.in/blog/bracketed-paste>  
+I added this to my "$HOME\.config\wezterm\wezterm.lua" configuration file:
+
+```lua
+config.keys = {
+    -- Luc: Turn off the default ctrl+v "input the next character literally",
+    -- because it works badly with the Windows Cliboard Manager Win+v.
+    { key = 'v', mods = 'CTRL', action = wezterm.action.Nop },
+}
+```
+
 ## Android studio
 
 When I want to make an app for android I have to use Android Studio in Win10. All the files are pushed to Github. And from there they are automatically synced with github_backup. The complete diagram: 
@@ -98,7 +114,7 @@ These are usually small files and having them go up and down the internet 4 time
 ## Rust on Windows
 
 I don't want to install rust on my windows machine.
-Maybe use a cross compile inside the Linux container?
+I will cross compile for Windows inside the Linux container.
 
 ## websites
 
