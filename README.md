@@ -81,7 +81,19 @@ I prefer to use it instead of Windows Console, Windows Terminal, xterm or termin
 I had a problem that using the Windows Clipboard Manager for "multi item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications, because it does not run a command if it finds a character for Enter when pasting. It waits that the user reads what is pasted and then press Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website there are many technics to hide visually a text, but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
 <https://cirw.in/blog/bracketed-paste>  
 The Clipboard Manager is sending ctrl+v under the hood. That key combination means "the next character will be taken literally". Then shift-ctrl-v pastes the "bracketed paste" that starts with ^[[200~. But unfortunately the first character is not understood as a special code, but as a normal character "literally".
-I added to my "%USERPROFILE%\\.config\wezterm\wezterm.lua" configuration file to ignore the ctrl+v key binding:
+Create/edit the configuration .ua file in powershell 
+
+```powershell
+notepad $HOME\.config\wezterm\wezterm.lua
+```
+
+or in Command Prompt 
+
+```cmd
+notepad %USERPROFILE%\.config\wezterm\wezterm.lua
+```
+
+to ignore the ctrl+v key binding:
 
 ```lua
 -- Pull in the wezterm API
