@@ -15,7 +15,7 @@ My projects on Github are more like a tutorial than a finished product: [bestia-
 
 ## Win installation
 
-Win installation is descripted in detail in [win_instalation.md](win_instalation.md).  
+Win installation is described in detail in [win_installation.md](win_instalation.md).  
 
 ## Rust on Linux
 
@@ -35,7 +35,7 @@ container -> Github: push
 @enduml
 ```
 
-![svg_vB2WxbVK7QGYOk81Hb1EJ9caUrLrczZrtnpvVc8jq-U](https://github.com/bestia-dev/development_environment/raw/main/images/svg_vB2WxbVK7QGYOk81Hb1EJ9caUrLrczZrtnpvVc8jq-U.svg)
+![svg_github_container](https://github.com/bestia-dev/development_environment/raw/main/images/svg_github_container.svg)
 
 [//]: # (auto_plantuml end)
 
@@ -55,7 +55,7 @@ Github -> github_backup: clone, pull
 @enduml
 ```
 
-![svg_6yiXGRklquObN1W6QhyR8wBqOoOYGBTcPcjezClme7w](https://github.com/bestia-dev/development_environment/raw/main/images/svg_6yiXGRklquObN1W6QhyR8wBqOoOYGBTcPcjezClme7w.svg)
+![svg_github_backup](https://github.com/bestia-dev/development_environment/raw/main/images/svg_github_backup.svg)
 
 [//]: # (auto_plantuml end)
 
@@ -74,7 +74,7 @@ Dropbox -> ext.hd_backup: backup
 @enduml 
 ```
 
-![svg_BdBz_rf1fMmZ38Dg0YUX6ABlKcjkQSlj0c8Tcl-TiJU](https://github.com/bestia-dev/development_environment/raw/main/images/svg_BdBz_rf1fMmZ38Dg0YUX6ABlKcjkQSlj0c8Tcl-TiJU.svg)
+![svg_dropbox](https://github.com/bestia-dev/development_environment/raw/main/images/svg_dropbox.svg)
 
 [//]: # (auto_plantuml end)
 
@@ -93,7 +93,7 @@ Dropbox -> ext.hd_backup: backup
 @enduml
 ```
 
-![svg_QsfNQcr9kVV4p7jZVaPkRnzjus-HrcmiEzVyzUeye3Y](https://github.com/bestia-dev/development_environment/raw/main/images/svg_QsfNQcr9kVV4p7jZVaPkRnzjus-HrcmiEzVyzUeye3Y.svg)
+![svg_android_studio](https://github.com/bestia-dev/development_environment/raw/main/images/svg_android_studio.svg)
 
 [//]: # (auto_plantuml end)
 
