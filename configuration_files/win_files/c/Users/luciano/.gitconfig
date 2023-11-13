@@ -1,0 +1,6 @@
+[user]
+	email = bestia.dev
+	name = Luciano
+[core]
+	eol = lf
+	autocrlf = false
