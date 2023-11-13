@@ -205,7 +205,53 @@ code docker_rust_development
 
 ## WezTerm
 
-Follow the instructions: <https://github.com/bestia-dev/development_environment>
+WezTerm is a powerful cross-platform terminal emulator and multiplexer written in Rust.  
+I prefer to use it instead of Windows Console, Windows Terminal, xterm or terminator.  
+I had a problem that using the Windows Clipboard Manager for "multi item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications, because it does not run a command if it finds a character for Enter when pasting. It waits that the user reads what is pasted and then press Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website there are many technics to hide visually a text, but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
+<https://cirw.in/blog/bracketed-paste>  
+The Clipboard Manager is sending ctrl+v under the hood. That key combination means "the next character will be taken literally". Then shift-ctrl-v pastes the "bracketed paste" that starts with ^[[200~. But unfortunately the first character is not understood as a special code, but as a normal character "literally".  
+Create/edit the configuration .lua file to ignore the ctrl+v key binding  
+in powershell  
+
+```powershell
+notepad $HOME\.config\wezterm\wezterm.lua
+```
+
+or in Command Prompt  
+
+```cmd
+notepad %USERPROFILE%\.config\wezterm\wezterm.lua
+```
+
+In the lua config file is defined that wezterm opens by default into WSL:Debian.  
+
+```lua
+-- Pull in the wezterm API
+local wezterm = require 'wezterm'
+
+-- This table will hold the configuration.
+local config = {}
+
+-- In newer versions of wezterm, use the config_builder which will
+-- help provide clearer error messages
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
+
+-- This is where you actually apply your config choices
+
+-- Luc: I want  to open the Debian bash terminal as default
+config.default_domain = 'WSL:Debian'
+
+config.keys = {
+    -- Luc: Turn off the default ctrl+v "input the next character literally",
+    -- because it works badly with the Windows Clipboard Manager Win+v.
+    { key = 'v', mods = 'CTRL', action = wezterm.action.Nop },
+}
+
+-- and finally, return the configuration to wezterm
+return config
+```
 
 ## Dropbox
 
