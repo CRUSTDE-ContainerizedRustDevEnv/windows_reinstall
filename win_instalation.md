@@ -179,7 +179,8 @@ I always want to use LF and not CRLF. Press F1 - Preferences: Open user settings
     "workbench.startupEditor": "none",
     "editor.inlayHints.enabled": "off",
     "files.autoSave": "afterDelay",
-    "editor.renderWhitespace": "all"
+    "editor.renderWhitespace": "all",
+    "vscodemacros.macroFilePath": "./.vscode/macros.js"
 }
 ```
 
