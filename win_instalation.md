@@ -195,18 +195,55 @@ I created a shortcut `ctrl+shift+ć` that opens a search and replace with the re
 // "C:\Users\luciano\AppData\Roaming\Code\User\keybindings.json"
 [
   {
+    // soft ć is free on my keyboard: ctrl+shift+ć
     "key": "ctrl+shift+oem_7",
-    "command": "editor.actions.findWithArgs",
+    "command": "workbench.action.findInFiles",
     "args": {
-      "searchString": "([\\.?!])(\\n[^\\n])",
-      "replaceString": "$1  $2",
-      "triggerSearch": true,
+      "query": "([\\.?!])(\\n[^\\n])",
+      "replace": "$1  $2",
+      "filesToInclude":"*.md",
       "isRegex": true,
       "wholeWord": false
     }
   }
 ]
 ```
+
+Another solution that is maybe more "user friendly" is to use javascript macros with the extension
+<https://marketplace.visualstudio.com/items?itemName=EXCEEDSYSTEM.vscode-macros>
+In File-Preferences-Settings-VSCodeMacros input in Macro file path `./.vscode/macros.js`$1  $2Then in .vscode folder I put the file macros.js:
+
+```javascript
+const vscode = require('vscode');
+
+module.exports.macroCommands = {
+   MarkdownDoubleSpaceNewLineMacro: {
+      no: 1,
+      func: funcMarkdownDoubleSpaceNewLineMacro
+   },
+};
+
+/// Markdown peculiarity is that one Newline is ignored and replaced with space.  
+/// For new paragraph there must be double newline.  
+/// But I like ti use soft-newline or <br>. For that is a strange doublespace plus newline.  
+/// The problem is that it is easy to forget and impossible to see, because space is invisible.  
+/// This macro will open replace in all .md files and with regex find and replace when I forget it.  
+function funcMarkdownDoubleSpaceNewLineMacro() {
+   // https://code.visualstudio.com/api/references/commands
+   vscode.commands.executeCommand('workbench.action.findInFiles',{
+      query: "([\\.?!])(\\n[^\\n])",
+      replace: "$1  $2",
+      filesToInclude:"*.md",
+      isRegex: true,
+      triggerSearch: true,
+      matchWholeWord: false,
+      isCaseSensitive: false,
+  });
+}
+```
+
+To use it press F1 - VSCMacros:Run a macro - MarkdownDoubleSpaceNewline, it will open the Find file window with all the problematic lines.  
+This could be also added to keybindings.js.
 
 ## WSL Debian
 

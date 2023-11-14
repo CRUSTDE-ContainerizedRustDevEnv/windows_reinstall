@@ -144,7 +144,7 @@ in every project separately I have to repair if there are CRLF somewhere:
  git rm --cached -r . 
  git reset --hard
  
- copy ..\dos2unix.exe .
+ copy ..\dos2unix.exe .  
  for /R %G in (*.txt) do dos2unix "%G"
  for /R %G in (*.md) do dos2unix "%G"
  for /R %G in (*.rs) do dos2unix "%G"
