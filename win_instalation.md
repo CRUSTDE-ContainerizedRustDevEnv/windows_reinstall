@@ -173,13 +173,39 @@ I always want to use LF and not CRLF. Press F1 - Preferences: Open user settings
         "rust_dev_vscode_cnt": "linux"
     },
     "security.allowedUNCHosts": [
-        "wsl.localhost"
+        "wsl.localhost",
+        "wsl$"
     ],
     "workbench.startupEditor": "none",
     "editor.inlayHints.enabled": "off",
     "files.autoSave": "afterDelay",
     "editor.renderWhitespace": "all"
 }
+```
+
+### VSCode Markdown
+
+One peculiarity of Markdown is that a single NewLine is completely ignored and transformed into a space.  
+If you want to make a new paragraph you need to write 2 Newlines character and that is ok.  
+But if you want a `<br>` soft-newline then you need to write space+space+newline. This is very peculiar.  
+I like this soft-newline a lot and use it very often. But it is very easy to forget and impossible to see because space are invisible.  
+I created a shortcut `ctrl+shift+ć` that opens a search and replace with the regex to correct this if I forgot it somewhere.
+
+```json
+// "C:\Users\luciano\AppData\Roaming\Code\User\keybindings.json"
+[
+  {
+    "key": "ctrl+shift+oem_7",
+    "command": "editor.actions.findWithArgs",
+    "args": {
+      "searchString": "([\\.?!])(\\n[^\\n])",
+      "replaceString": "$1  $2",
+      "triggerSearch": true,
+      "isRegex": true,
+      "wholeWord": false
+    }
+  }
+]
 ```
 
 ## WSL Debian
@@ -229,7 +255,7 @@ In the lua config file is defined that wezterm opens by default into WSL:Debian.
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 
--- This table will hold the configuration.
+-- This table will hold the configuration.  
 local config = {}
 
 -- In newer versions of wezterm, use the config_builder which will
@@ -245,7 +271,7 @@ config.default_domain = 'WSL:Debian'
 
 config.keys = {
     -- Luc: Turn off the default ctrl+v "input the next character literally",
-    -- because it works badly with the Windows Clipboard Manager Win+v.
+    -- because it works badly with the Windows Clipboard Manager Win+v.  
     { key = 'v', mods = 'CTRL', action = wezterm.action.Nop },
 }
 

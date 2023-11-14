@@ -157,3 +157,6 @@ echo "run sh ~/rustprojects/docker_rust_development_install/rust_dev_pod_after_r
 
 export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
+
+# dev_bestia_cargo_completion
+complete -C dev_bestia_cargo_completion cargo
