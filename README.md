@@ -5,6 +5,8 @@
 **Description of my development environment for Rust**  
 ***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/development_environment)***  
 
+**WARNING !!! This is a public repository: never write or save secrets here!!!**
+
 [//]: # (auto_cargo_toml_to_md end)
 
 ![status](https://img.shields.io/badge/tutorial-yellow)
@@ -120,10 +122,10 @@ Also uppercase and lowercase can be limited.
 Variants of the name:
 
 bestia.dev - domain name and primary, preferred name  
-info at bestia.dev - is forwarded to dev.bestia at gmail.com  
+info at bestia.dev - is forwarded to info.bestia.dev at gmail.com  
 bestiadev  - docker  
 bestia-dev - gitub (bestiadev is NOT available 2022-03)  
-dev.bestia at gmail.com  (bestia.dev is NOT available 2022-03, but it is not in use?)  
+info.bestia.dev at gmail.com  (bestia.dev is NOT available 2022-03, but it is not in use?)  
 
 ## LF or CRLF
 
@@ -162,7 +164,7 @@ in every project separately I have to repair if there are CRLF somewhere:
 
 ## Linux shutdown
 
-Now I mostly use to dual-boot into Debian Linux. And there I use Podman to develope in Rust inside a container. Compiling is much faster than inside the WSL. Probably because of file acces. I suppose there are hundreds of small files and that is the major speed difference.  
+For some time I used to dual-boot into Debian Linux. And there I use Podman to develop in Rust inside a container. Compiling was much faster than inside the WSL. Probably because of file access. I suppose there are hundreds of small files and that is the major speed difference. Later I decided that it is not so important and I use Debian in WSL2 on Win10 again.  
 The standard Linux shutdown is very slow because of Podman. So I created a small bash script `~/shut.sh`:  
 
 ```bash

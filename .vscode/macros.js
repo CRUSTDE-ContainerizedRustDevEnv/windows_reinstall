@@ -1,13 +1,5 @@
 const vscode = require('vscode');
 
-/**
- * Macro configuration settings
- * { [name: string]: {              ... Name of the macro
- *    no: number,                   ... Order of the macro
- *    func: ()=> string | undefined ... Name of the body of the macro function
- *  }
- * }
- */
 module.exports.macroCommands = {
    MarkdownDoubleSpaceNewLineMacro: {
       no: 1,
@@ -34,6 +26,7 @@ function funcMarkdownDoubleSpaceNewLineMacro() {
 }
 
 /**
+ * examples
 ///FooMacro
 function fooFunc() {
    const editor = vscode.window.activeTextEditor;
