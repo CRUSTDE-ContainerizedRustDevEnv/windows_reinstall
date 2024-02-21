@@ -9,8 +9,8 @@
 
 [//]: # (auto_cargo_toml_to_md end)
 
-![status](https://img.shields.io/badge/tutorial-yellow)
- ![Hits](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
+ ![tutorial](https://img.shields.io/badge/tutorial-yellow)
+ ![development_environment](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
 
 Hashtags: #rustlang #tutorial #buildtool #developmenttool  
 My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
