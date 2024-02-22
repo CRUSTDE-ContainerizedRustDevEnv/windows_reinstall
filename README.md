@@ -25,7 +25,7 @@ This days I mostly program with Rust on Linux.
 My primary desktop is Win10. Inside it I have WSL2, which is a Linux Virtual Machine. There I installed Debian 11 Bullseye.  
 I made a detailed description in <https://github.com/bestia-dev/win10_wsl2_debian11>.
 
-For Rust development for Linux I have the container `rust_dev_vscode_cnt` created from the image `rust_dev_vscode_img` that I described here <https://github.com/bestia-dev/docker_rust_development>.  
+I use `CRDE - Containerized Rust Development Environment` described here <https://github.com/bestia-dev/docker_rust_development>.  
 This container is ephemeral and can be destroyed any time. The important files inside it must be pushed to Github, else they will be destroyed with the container.  
 
 [//]: # (auto_plantuml start)
