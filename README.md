@@ -180,7 +180,7 @@ echo 'shutdown -h now'
 But the command `shutdown` needs root privileges. I used `sudo chmod +s /usr/sbin/shutdown` to allow me as a normal user to shutdown.  
 Now I write `shut` in the terminal to shutdown the computer faster.  
 
-## open-source and free as a beer
+## Open-source and free as a beer
 
 My open-source projects are free as a beer (MIT license).  
 I just love programming.  
