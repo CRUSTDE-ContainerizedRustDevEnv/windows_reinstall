@@ -250,8 +250,8 @@ This could be also added to keybindings.js.
 
 Follow the instructions: <https://github.com/bestia-dev/win10_wsl2_debian11>  
 In Debian bash terminal add some prerequisites:  
-`mkdir ~/.ssh` and from c:Users/luciano/.ssh copy githubssh1, githubssh1.pub, webserverssh1, webserverssh1.pub  
-Protect the private files `sudo chmod 600 githubssh1` and `sudo chmod 600 webserverssh1`  
+`mkdir ~/.ssh` and from c:Users/luciano/.ssh copy github_com_ssh_1, github_com_ssh_1.pub, bestia_dev_ssh_1, bestia_dev_ssh_1.pub  
+Protect the private files `sudo chmod 600 github_com_ssh_1` and `sudo chmod 600 bestia_dev_ssh_1`  
 Copy other files like ~/.bashrc, sshadd.sh from ImportantConfigurationFiles\debian_files.  
 Restart debian and wsl: in Powershell run `wsl --shutdown`.  
 
