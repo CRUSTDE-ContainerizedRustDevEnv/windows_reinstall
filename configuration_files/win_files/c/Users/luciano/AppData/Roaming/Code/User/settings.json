@@ -1,0 +1,30 @@
+{
+    "files.eol": "\n",
+    "editor.minimap.enabled": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "remote.SSH.remotePlatform": {
+        "rust_dev_vscode_cnt": "linux"
+    },
+    "security.allowedUNCHosts": [
+        "wsl.localhost",
+        "wsl$"
+    ],
+    "workbench.startupEditor": "none",
+    "editor.inlayHints.enabled": "off",
+    "files.autoSave": "afterDelay",
+    "editor.renderWhitespace": "none",
+    "vscodemacros.macroFilePath": "./.vscode/macros.js",
+    "workbench.panel.defaultLocation": "right",
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "git.openRepositoryInParentFolders": "never",
+    "editor.autoIndent": "none",
+    "grammarly.files.include": [
+        "**/README.md",
+        "**/LICENSE"
+    ],
+    "grammarly.config.documentDialect": "american",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.allowForcePush": true,
+}
