@@ -1,3 +1,5 @@
+[//]: # (auto_md_to_doc_comments segment start A)
+
 Totalcmd configuration files
 
 The wincmd.key and wcx_ftp.ini are in my encrypted vault.
@@ -15,3 +17,5 @@ So I can drink a free beer for your health :-)
 [//github.com/bestia-dev](https://github.com/bestia-dev)  
 [//bestiadev.substack.com](https://bestiadev.substack.com)  
 [//youtube.com/@bestia-dev-tutorials](https://youtube.com/@bestia-dev-tutorials)  
+
+[//]: # (auto_md_to_doc_comments segment end A)
