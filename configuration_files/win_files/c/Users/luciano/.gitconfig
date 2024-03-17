@@ -1,6 +1,10 @@
-[user]
-	email = bestia.dev
-	name = Luciano
 [core]
+	editor = \"C:\\Users\\luciano\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
 	eol = lf
-	autocrlf = false
+	autocrlf = input
+[safe]
+	directory = D:/Dropbox/BestiaDev/github_backup
+	directory = %(prefix)///wsl.localhost/Debian/home/luciano/rustprojects
+[user]
+	email = info@bestia.dev
+	name = luciano_bestia

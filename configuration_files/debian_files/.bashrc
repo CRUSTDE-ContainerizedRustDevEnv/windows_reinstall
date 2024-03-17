@@ -148,7 +148,7 @@ fi
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="C"
 
-echo "Use the global command 'sshadd' to simply add your primary SSH keys to ssh-agent $SSH_AGENT_PID."
+echo "Use the global command 'sshadd' to simply add your private SSH keys to ssh-agent $SSH_AGENT_PID."
 alias sshadd="echo sh ~/.ssh/sshadd.sh; sh ~/.ssh/sshadd.sh"
 
 echo "run sh ~/rustprojects/docker_rust_development_install/rust_dev_pod_after_reboot.sh to prepare the Rust development container after reboot"
@@ -160,3 +160,10 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 
 # dev_bestia_cargo_completion
 complete -C dev_bestia_cargo_completion cargo
+
+
+# disable XON/XOFF flow control
+stty -ixon
+bind -r "\C-s"  
+# disabel ctrl-b, because I want VSCode to use it.
+bind -r "\C-b"  

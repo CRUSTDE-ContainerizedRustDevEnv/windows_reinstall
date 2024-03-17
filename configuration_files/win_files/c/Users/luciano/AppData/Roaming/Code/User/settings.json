@@ -4,7 +4,7 @@
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "remote.SSH.remotePlatform": {
-        "rust_dev_vscode_cnt": "linux"
+        "localhost_2201_rustdevuser_ssh_1": "linux"
     },
     "security.allowedUNCHosts": [
         "wsl.localhost",
@@ -27,4 +27,36 @@
     "grammarly.config.documentDialect": "american",
     "diffEditor.ignoreTrimWhitespace": false,
     "git.allowForcePush": true,
+    "cSpell.userWords": [
+        "Oaep"
+    ],
+    "rust-analyzer.lens.implementations.enable": false,
+    "window.restoreWindows": "none",
+    "remote.SSH.path": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
+    "files.associations": {
+        "*.ssh_config": "ssh_config"
+    },
+    "remote.SSH.configFile": "C:\\Users\\luciano\\.ssh\\config",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash",
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe"
+        }
+    },
+    "terminal.integrated.automationProfile.windows": {
+        "path":  "C:\\Program Files\\Git\\bin\\bash.exe"
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash"
 }
