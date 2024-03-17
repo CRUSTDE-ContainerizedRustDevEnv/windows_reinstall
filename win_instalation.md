@@ -184,145 +184,18 @@ I prefer to use it instead of Windows Console, Windows Terminal, xterm or termin
 I had a problem that using the Windows Clipboard Manager for "multi item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications, because it does not run a command if it finds a character for Enter when pasting. It waits that the user reads what is pasted and then presses Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website there are many technics to hide visually a text, but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
 <https://cirw.in/blog/bracketed-paste>  
 The Clipboard Manager is sending ctrl+v under the hood. That key combination means "the next character will be taken literally". Then shift-ctrl-v pastes the "bracketed paste" that starts with ^[[200~. But unfortunately the first character is not understood as a special code, but as a normal character "literally".  
-Create/edit the configuration .lua file to ignore the ctrl+v key binding  
-in powershell  
-
-```powershell
-notepad $HOME\.config\wezterm\wezterm.lua
-```
-
-or in Command Prompt  
-
-```cmd
-notepad %USERPROFILE%\.config\wezterm\wezterm.lua
-```
-
+Create/edit the configuration .lua file to ignore the ctrl+v key binding.  
 In the lua config file is defined that wezterm opens by default into WSL:Debian.  
+On start opens 2 windows side-by-side for WSL:Debian and git-bash.
 
-```lua
--- Pull in the wezterm API
-local wezterm = require 'wezterm'
-
--- This table will hold the configuration.
-local config = {}
-
--- In newer versions of wezterm, use the config_builder which will
--- help provide clearer error messages
-if wezterm.config_builder then
-  config = wezterm.config_builder()
-end
-
--- This is where you actually apply your config choices
-
--- Luc: I want  to open the Debian bash terminal as default
-config.default_domain = 'WSL:Debian'
-
-config.keys = {
-    -- Luc: Turn off the default ctrl+v "input the next character literally",
-    -- because it works badly with the Windows Clipboard Manager Win+v.
-    { key = 'v', mods = 'CTRL', action = wezterm.action.Nop },
-}
-
--- use right-click for paste
-config.mouse_bindings = {
-  {
-    event = { Down = { streak = 1, button = "Right" } },
-    mods = "NONE",
-    action = wezterm.action({ PasteFrom = "Clipboard" }),
-  },
-}
-
--- launch menu with wsl and git-bash
- config.launch_menu = {
-      {
-         label = "wsl",
-         args = { "wsl.exe" },
-         domain = { DomainName = "local" },
-        cwd = '/home/',
-      },
-      {
-         label = "git-bash",
-         args = { "C:\\Program Files\\Git\\bin\\bash.exe", "-l" },
-         domain = { DomainName = "local" },
-      },
-   }
--- and finally, return the configuration to wezterm
-return config
-```
-
-
+The template for `$HOME\.config\wezterm\wezterm.lua` is [here](configuration_files/win_files/c/Users/luciano/.config/wezterm/wezterm.lua).  
 
 ## VSCode
 
 <https://code.visualstudio.com/download>  
 Backup and sync setting with my github account bestia-dev.  
 WARNING: Don't install `WSL extension``. It is not needed for work in WSL folders from Windows and it disables the remote ssh connection for VSCode!  
-I always want to use LF and not CRLF. Press F1 - Preferences: Open user settings (JSON) and add:  
-
-```json
-{
-    "files.eol": "\n",
-    "editor.minimap.enabled": false,
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    "remote.SSH.remotePlatform": {
-        "localhost_2201_rustdevuser_ssh_1": "linux"
-    },
-    "security.allowedUNCHosts": [
-        "wsl.localhost",
-        "wsl$"
-    ],
-    "workbench.startupEditor": "none",
-    "editor.inlayHints.enabled": "off",
-    "files.autoSave": "afterDelay",
-    "editor.renderWhitespace": "none",
-    "vscodemacros.macroFilePath": "./.vscode/macros.js",
-    "workbench.panel.defaultLocation": "right",
-    "editor.unicodeHighlight.invisibleCharacters": false,
-    "editor.unicodeHighlight.nonBasicASCII": false,
-    "git.openRepositoryInParentFolders": "never",
-    "editor.autoIndent": "none",
-    "grammarly.files.include": [
-        "**/README.md",
-        "**/LICENSE"
-    ],
-    "grammarly.config.documentDialect": "american",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "git.allowForcePush": true,
-    "cSpell.userWords": [
-        "Oaep"
-    ],
-    "rust-analyzer.lens.implementations.enable": false,
-    "window.restoreWindows": "none",
-    "remote.SSH.path": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
-    "files.associations": {
-        "*.ssh_config": "ssh_config"
-    },
-    "remote.SSH.configFile": "C:\\Users\\luciano\\.ssh\\config",
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "Git Bash": {
-            "source": "Git Bash",
-            "path": "C:\\Program Files\\Git\\bin\\bash.exe"
-        }
-    },
-    "terminal.integrated.automationProfile.windows": {
-        "path":  "C:\\Program Files\\Git\\bin\\bash.exe"
-    },
-    "terminal.integrated.defaultProfile.windows": "Git Bash"
-}
-```
+I always want to use LF and not CRLF. Press F1 - Preferences: Open user settings (JSON) and add the json template from [here](configuration_files/vscode_settings.json).  
 
 ### VSCode Markdown
 
@@ -330,63 +203,10 @@ One peculiarity of Markdown is that a single NewLine is completely ignored and t
 If you want to make a new paragraph you need to write 2 Newlines character and that is ok.  
 But if you want a `<br>` soft-newline then you need to write space+space+newline. This is very peculiar.  
 I like this soft-newline a lot and use it very often. But it is very easy to forget and impossible to see because space are invisible.  
-I created a shortcut `ctrl+shift+ć` that opens a search and replace with the regex to correct this if I forgot it somewhere.
+I created a shortcut `ctrl+shift+ć` that opens a search and replace with the regex to correct this if I forgot it somewhere.  
 
-```json
-// "C:\Users\luciano\AppData\Roaming\Code\User\keybindings.json"
-[
-  {
-    // soft ć is free on my keyboard: ctrl+shift+ć
-    "key": "ctrl+shift+oem_7",
-    "command": "workbench.action.findInFiles",
-    "args": {
-      "query": "([\\.?!])(\\n[^\\n])",
-      "replace": "$1  $2",
-      "filesToInclude":"*.md",
-      "isRegex": true,
-      "wholeWord": false
-    }
-  }
-]
-```
-
-Another solution that is maybe more "user friendly" is to use javascript macros with the extension
-<https://marketplace.visualstudio.com/items?itemName=EXCEEDSYSTEM.vscode-macros>
-In File-Preferences-Settings-VSCodeMacros input in Macro file path `./.vscode/macros.js`.  
-Then in .vscode folder I put the file macros.js:
-
-```javascript
-const vscode = require('vscode');
-
-module.exports.macroCommands = {
-   MarkdownDoubleSpaceNewLineMacro: {
-      no: 1,
-      func: funcMarkdownDoubleSpaceNewLineMacro
-   },
-};
-
-/// Markdown peculiarity is that one Newline is ignored and replaced with space.  
-/// For new paragraph there must be double newline.  
-/// But I like ti use soft-newline or <br>. For that is a strange doublespace plus newline.  
-/// The problem is that it is easy to forget and impossible to see, because space is invisible.  
-/// This macro will open replace in all .md files and with regex find and replace when I forget it.  
-function funcMarkdownDoubleSpaceNewLineMacro() {
-   // https://code.visualstudio.com/api/references/commands
-   vscode.commands.executeCommand('workbench.action.findInFiles',{
-      query: "([\\.?!])(\\n[^\\n])",
-      replace: "$1  $2",
-      filesToInclude:"*.md",
-      isRegex: true,
-      triggerSearch: true,
-      matchWholeWord: false,
-      isCaseSensitive: false,
-  });
-}
-```
-
-To use it press F1 - VSCMacros:Run a macro - MarkdownDoubleSpaceNewline, it will open the Find file window with all the problematic lines.  
-This could be also added to `keybindings.js` for global access.
-
+Write key bindings in "C:\Users\luciano\AppData\Roaming\Code\User\keybindings.json".  
+Find the code [here](configuration_files/win_files/c/Users/luciano/AppData/Roaming/Code/User/keybindings.json).
 
 ## Git for windows and git-bash
 
@@ -404,36 +224,7 @@ So the command git-bash will work globally in windows.
 ## Git-bash as default terminal in VSCode
 
 I want git-bash to be my default terminal inside VSCode for Windows.
-In VSCode press F1 - Preferences: Open user settings (JSON) and add:  
-
-```json
-{
-  ...
-  ...
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "Git Bash": {
-            "source": "Git Bash",
-            "path": "C:\\Program Files\\Git\\bin\\bash.exe"
-        }
-    },
-    "terminal.integrated.automationProfile.windows": {
-        "path":  "C:\\Program Files\\Git\\bin\\bash.exe"
-    },
-    "terminal.integrated.defaultProfile.windows": "Git Bash"
-}
-```
+In VSCode press F1 - Preferences: Open user settings (JSON) and copy the settings of "terminal.integrated" from [here](configuration_files/vscode_settings.json).
 
 ## SSH in Windows (Git SSH)
 
@@ -469,13 +260,13 @@ This must return "empty".
 
 4. To be sure, I searched all my `C:` disk and found only one `ssh.exe` in `C:\Program Files\Git\usr\bin\ssh.exe`. Good!
 
-### ssh-agent
+### ssh-agent in Windows
 
 Every time I connect over SSH I must input the passcode for my SSH identity.  
 Windows has also`ssh-agent` and I could use it just the same as in Linux bash to avoid retyping the passcode every time.  
 I chose to use only the `ssh-agent.exe` that comes with [git for windows](https://git-scm.com/download/win).  
 
-I want the ssh-agent to start when I manually run the git-bash console. I wrote a little script in [~/.bashrc](docker_rust_development_install\win_home_dot_bashrc) file for git-bash in Windows.  
+I want the ssh-agent to start when I manually run the git-bash console. I wrote a little script in `~/.bashrc` file for git-bash in Windows. Find the code [here](configuration_files/win_files/c/Users/luciano/.bashrc).  
 
 Maybe it looks confusing, but git-bash treats the windows path in the Linux way. `~` is the home folder and slash `/` instead of the `\` backslash. Smart!  
 
@@ -498,47 +289,9 @@ In Windows I use SSH for:
 This configuration worked for me:
 
 I have 2 separate config files for Windows and WSL, but I use only the private keys from inside WSL. So I don't have to copy them into Windows.  
-In Linux [~\.ssh\config](docker_rust_development_install\wsl_ssh_config.ssh_config) I used the paths like `~/.ssh/key`.  
+In Linux `~\.ssh\config` I used the paths like `~/.ssh/key`. Find the code [here](configuration_files/debian_files/.ssh/config).  
 
-```conf
-Host localhost_2201_rustdevuser_ssh_1
-    HostName localhost
-    Port 2201
-    User rustdevuser
-    IdentityFile ~/.ssh/localhost_2201_rustdevuser_ssh_1
-
-Host github_com_git_ssh_1
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/github_com_git_ssh_1
-	
-Host bestia_dev_luciano_bestia_ssh_1
-    HostName bestia.dev
-    User luciano_bestia
-    IdentityFile ~/.ssh/bestia_dev_luciano_bestia_ssh_1
-
-```
-
-In Windows ["C:\Users\luciano\.ssh\config"](docker_rust_development_install\win_home_ssh_config.ssh_config) I used the paths like `//wsl.localhost/Debian/home/luciano/.ssh/key`.  
-
-```conf
-Host localhost_2201_rustdevuser_ssh_1
-    HostName localhost
-    Port 2201
-    User rustdevuser
-    IdentityFile //wsl.localhost/Debian/home/luciano/.ssh/localhost_2201_rustdevuser_ssh_1
-
-Host github_com_git_ssh_1
-    HostName github.com
-    User git
-    IdentityFile //wsl.localhost/Debian/home/luciano/.ssh/github_com_git_ssh_1
-	
-Host bestia_dev_luciano_bestia_ssh_1
-    HostName bestia.dev
-    User luciano_bestia
-    IdentityFile //wsl.localhost/Debian/home/luciano/.ssh/bestia_dev_luciano_bestia_ssh_1
-
-```
+In Windows "C:\Users\luciano\.ssh\config" I used the paths like `//wsl.localhost/Debian/home/luciano/.ssh/key`. Find the code [here](configuration_files/win_files/c/Users/luciano/.ssh/config).
 
 In VSCode I specify the use of Git ssh-agent and config files explicitly, to avoid any confusion.  
 In Settings find and set:
