@@ -20,6 +20,9 @@ Version 22H2
 OS build 19045.3570  
 Activation: Windows is activated with a digital license linked to your microsoft account
 
+I splitted my SSD into partitions `C:` and `D:`. Every time I reinstall windows I completely format the `C:` partition, but the `D:` partition remains intact.  
+I have the Dropbox folder on my `D:` partition. So it will survive the reinstall of windows. It is also better for backups to have separate system disk and data disk.  
+
 ## System backup win10
 
 Backup, backup, backup... Do it all the time. Disks can die in an instant and you loose everything.  
@@ -71,7 +74,7 @@ Click on Date, Time and regional formatting - Current format: Slovenia
 ## Taskbar
 
 On the taskbar right click then "Unlock the taskbar". Right click on taskbar and disable: Search box, Task view, News and interest, Windows Ink.  
-I like to have the taskbar on the right and not on the bottom, because I have 2 displays. Right click on task bar icons and Hide: Meet now.  
+I like to have the taskbar on the right and not on the bottom, because there is way more space horizontally then vertically on a 19:6 screen. Right click on task bar icons and Hide: Meet now.  
 Right click on taskbar - Taskbar settings - Turn system icons on and off - I don't need keyboard indicator, Location and microphone.  
 The taskbar does not show the day of week. Unlock the taskbar and widen the taskbar just a bit to show the day of week. Then lock the taskbar.  
 
@@ -148,130 +151,37 @@ FYI: There is also the folder `%ProgramData%\Microsoft\Windows\Start Menu\Progra
 
 <https://www.libreoffice.org/download/download-libreoffice/>  
 345 MB  
-TODO: I don't like autocomplete.  
+TODO: I don't like autocomplete. Disable all of that.  
 
 ## whatsapp
 
 It is already prepared in Win10, but it still needs to download the latest version.  
 Run it and it shows a QR code. On the smartphone open Whatsapp-Settings - QRCode-Scan code and then Link the device.
 
-## VSCode
+## Firefox
 
-<https://code.visualstudio.com/download>  
-Backup and sync setting with my github account bestia-dev.  
-WARNING: Don't install `WSL extension``. It is not needed for work in WSL folders from Windows and it disables the remote ssh connection for VSCode!  
-I always want to use LF and not CRLF. Press F1 - Preferences: Open user settings (JSON) and add:  
+<https://www.mozilla.org/en-US/firefox/new/>
+I use firefox just for programming purpose, because Rust was born at Mozilla.  
 
-```json
-{
-    "files.eol": "\n",
-    "editor.minimap.enabled": false,
-    "terminal.integrated.fontSize": 20,
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    "remote.SSH.remotePlatform": {
-        "rust_dev_vscode_cnt": "linux"
-    },
-    "security.allowedUNCHosts": [
-        "wsl.localhost",
-        "wsl$"
-    ],
-    "workbench.startupEditor": "none",
-    "editor.inlayHints.enabled": "off",
-    "files.autoSave": "afterDelay",
-    "editor.renderWhitespace": "all",
-    "vscodemacros.macroFilePath": "./.vscode/macros.js"
-}
-```
+## Dropbox
 
-### VSCode Markdown
+I splitted my SSD into partitions `C:` and `D:`. Every time I reinstall windows I completely format the `C:` partition, but the `D:` partition remains intact.  
+I have the Dropbox folder on my `D:` partition. So it will survive the reinstall of windows. It is also better for backups to have separate system disk and data disk.
 
-One peculiarity of Markdown is that a single NewLine is completely ignored and transformed into a space.  
-If you want to make a new paragraph you need to write 2 Newlines character and that is ok.  
-But if you want a `<br>` soft-newline then you need to write space+space+newline. This is very peculiar.  
-I like this soft-newline a lot and use it very often. But it is very easy to forget and impossible to see because space are invisible.  
-I created a shortcut `ctrl+shift+ć` that opens a search and replace with the regex to correct this if I forgot it somewhere.
-
-```json
-// "C:\Users\luciano\AppData\Roaming\Code\User\keybindings.json"
-[
-  {
-    // soft ć is free on my keyboard: ctrl+shift+ć
-    "key": "ctrl+shift+oem_7",
-    "command": "workbench.action.findInFiles",
-    "args": {
-      "query": "([\\.?!])(\\n[^\\n])",
-      "replace": "$1  $2",
-      "filesToInclude":"*.md",
-      "isRegex": true,
-      "wholeWord": false
-    }
-  }
-]
-```
-
-Another solution that is maybe more "user friendly" is to use javascript macros with the extension
-<https://marketplace.visualstudio.com/items?itemName=EXCEEDSYSTEM.vscode-macros>
-In File-Preferences-Settings-VSCodeMacros input in Macro file path `./.vscode/macros.js`$1  $2Then in .vscode folder I put the file macros.js:
-
-```javascript
-const vscode = require('vscode');
-
-module.exports.macroCommands = {
-   MarkdownDoubleSpaceNewLineMacro: {
-      no: 1,
-      func: funcMarkdownDoubleSpaceNewLineMacro
-   },
-};
-
-/// Markdown peculiarity is that one Newline is ignored and replaced with space.  
-/// For new paragraph there must be double newline.  
-/// But I like ti use soft-newline or <br>. For that is a strange doublespace plus newline.  
-/// The problem is that it is easy to forget and impossible to see, because space is invisible.  
-/// This macro will open replace in all .md files and with regex find and replace when I forget it.  
-function funcMarkdownDoubleSpaceNewLineMacro() {
-   // https://code.visualstudio.com/api/references/commands
-   vscode.commands.executeCommand('workbench.action.findInFiles',{
-      query: "([\\.?!])(\\n[^\\n])",
-      replace: "$1  $2",
-      filesToInclude:"*.md",
-      isRegex: true,
-      triggerSearch: true,
-      matchWholeWord: false,
-      isCaseSensitive: false,
-  });
-}
-```
-
-To use it press F1 - VSCMacros:Run a macro - MarkdownDoubleSpaceNewline, it will open the Find file window with all the problematic lines.  
-This could be also added to keybindings.js.
-
-## WSL Debian
-
-Follow the instructions: <https://github.com/bestia-dev/win10_wsl2_debian11>  
-In Debian bash terminal add some prerequisites:  
-`mkdir ~/.ssh` and from c:Users/luciano/.ssh copy github_com_git_ssh_1, github_com_git_ssh_1.pub, bestia_dev_luciano_bestia_ssh_1, bestia_dev_luciano_bestia_ssh_1.pub  
-Protect the private files `sudo chmod 600 github_com_git_ssh_1` and `sudo chmod 600 bestia_dev_luciano_bestia_ssh_1`  
-Copy other files like ~/.bashrc, sshadd.sh from ImportantConfigurationFiles\debian_files.  
-Restart debian and wsl: in Powershell run `wsl --shutdown`.  
-
-Install prerequisites for development in container.  
-Install podman from instructions: <https://github.com/bestia-dev/docker_rust_development>
-
-```bash
-sudo apt-get install git
-sudo apt-get install wget
-mkdir rustprojects
-cd rustprojects
-git clone git@github.com:bestia-dev/docker_rust_development.git
-code docker_rust_development
-```
+I already had Dropbox on my PC and used "Selective folders". Now I want to install it again, but I don't want to make a mess with my files.  
+I will rename d:\Dropbox into d:\Dropbox_old.  
+Login to <https://www.dropbox.com/home>. Click on profile right top and choose "Install dropbox app" - Download dropbox app. Run DropboxInstaller.exe.  
+The browser should stay open on the users dropbox page. After installation the application will use the browser to login.  
+Choose folders to sync. I already splitted the folders into sync and non_sync folders. So it is easy to choose all the sync folders.  
+Advanced - location D:\Dropbox. Done. Wait a little to start. And then click the taskbar icon - Profile - Quit.  
+Now I can rename the D:\Dropbox_old to d:\Dropbox. Start Dropbox. It will index for 10 minutes.  
+If there is a conflict Dropbox will create a new file with the name containing the word "conflict".  
 
 ## WezTerm
 
 WezTerm is a powerful cross-platform terminal emulator and multiplexer written in Rust.  
 I prefer to use it instead of Windows Console, Windows Terminal, xterm or terminator.  
-I had a problem that using the Windows Clipboard Manager for "multi item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications, because it does not run a command if it finds a character for Enter when pasting. It waits that the user reads what is pasted and then press Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website there are many technics to hide visually a text, but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
+I had a problem that using the Windows Clipboard Manager for "multi item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications, because it does not run a command if it finds a character for Enter when pasting. It waits that the user reads what is pasted and then presses Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website there are many technics to hide visually a text, but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
 <https://cirw.in/blog/bracketed-paste>  
 The Clipboard Manager is sending ctrl+v under the hood. That key combination means "the next character will be taken literally". Then shift-ctrl-v pastes the "bracketed paste" that starts with ^[[200~. But unfortunately the first character is not understood as a special code, but as a normal character "literally".  
 Create/edit the configuration .lua file to ignore the ctrl+v key binding  
@@ -313,6 +223,7 @@ config.keys = {
     { key = 'v', mods = 'CTRL', action = wezterm.action.Nop },
 }
 
+-- use right-click for paste
 config.mouse_bindings = {
   {
     event = { Down = { streak = 1, button = "Right" } },
@@ -321,33 +232,333 @@ config.mouse_bindings = {
   },
 }
 
+-- launch menu with wsl and git-bash
+ config.launch_menu = {
+      {
+         label = "wsl",
+         args = { "wsl.exe" },
+         domain = { DomainName = "local" },
+        cwd = '/home/',
+      },
+      {
+         label = "git-bash",
+         args = { "C:\\Program Files\\Git\\bin\\bash.exe", "-l" },
+         domain = { DomainName = "local" },
+      },
+   }
 -- and finally, return the configuration to wezterm
 return config
 ```
 
-## Dropbox
 
-I already had Dropbox on my PC and used "Selective folders". Now I want to install it again, but I don't want to make a mess with my files.  
-I will rename d:\Dropbox into d:\Dropbox_old.  
-Login to <https://www.dropbox.com/home>. Click on profile right top and choose "Install dropbox app" - Download dropbox app. Run DropboxInstaller.exe.  
-The browser should stay open on the users dropbox page. After installation the application will use the browser to login.  
-Choose folders to sync. I already splitted the folders into sync and non_sync folders. So it is easy to choose all the sync folders.  
-Advanced - location D:\Dropbox. Done. Wait a little to start. And then click the taskbar icon - Profile - Quit.  
-Now I can rename the D:\Dropbox_old to d:\Dropbox. Start Dropbox. It will index for 10 minutes.  
-If there is a conflict Dropbox will create a new file with the name containing the word "conflict".  
 
-## Firefox
+## VSCode
 
-<https://www.mozilla.org/en-US/firefox/new/>
-I use firefox just for programming purpose, because Rust was born at Mozilla.  
+<https://code.visualstudio.com/download>  
+Backup and sync setting with my github account bestia-dev.  
+WARNING: Don't install `WSL extension``. It is not needed for work in WSL folders from Windows and it disables the remote ssh connection for VSCode!  
+I always want to use LF and not CRLF. Press F1 - Preferences: Open user settings (JSON) and add:  
 
-## Git in windows
+```json
+{
+    "files.eol": "\n",
+    "editor.minimap.enabled": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "remote.SSH.remotePlatform": {
+        "localhost_2201_rustdevuser_ssh_1": "linux"
+    },
+    "security.allowedUNCHosts": [
+        "wsl.localhost",
+        "wsl$"
+    ],
+    "workbench.startupEditor": "none",
+    "editor.inlayHints.enabled": "off",
+    "files.autoSave": "afterDelay",
+    "editor.renderWhitespace": "none",
+    "vscodemacros.macroFilePath": "./.vscode/macros.js",
+    "workbench.panel.defaultLocation": "right",
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "git.openRepositoryInParentFolders": "never",
+    "editor.autoIndent": "none",
+    "grammarly.files.include": [
+        "**/README.md",
+        "**/LICENSE"
+    ],
+    "grammarly.config.documentDialect": "american",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.allowForcePush": true,
+    "cSpell.userWords": [
+        "Oaep"
+    ],
+    "rust-analyzer.lens.implementations.enable": false,
+    "window.restoreWindows": "none",
+    "remote.SSH.path": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
+    "files.associations": {
+        "*.ssh_config": "ssh_config"
+    },
+    "remote.SSH.configFile": "C:\\Users\\luciano\\.ssh\\config",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash",
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe"
+        }
+    },
+    "terminal.integrated.automationProfile.windows": {
+        "path":  "C:\\Program Files\\Git\\bin\\bash.exe"
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash"
+}
+```
 
-Git is the legendary version control and I use it everywhere: in windows, Debian and inside the container.  
-In windows install from <https://git-scm.com/download/win>  It comes with a Git bash.  
-In Debian we already installed it before. In the container it is pre-prepared in the container image.  
+### VSCode Markdown
 
-## VSCode Rust programming in container
+One peculiarity of Markdown is that a single NewLine is completely ignored and transformed into a space.  
+If you want to make a new paragraph you need to write 2 Newlines character and that is ok.  
+But if you want a `<br>` soft-newline then you need to write space+space+newline. This is very peculiar.  
+I like this soft-newline a lot and use it very often. But it is very easy to forget and impossible to see because space are invisible.  
+I created a shortcut `ctrl+shift+ć` that opens a search and replace with the regex to correct this if I forgot it somewhere.
+
+```json
+// "C:\Users\luciano\AppData\Roaming\Code\User\keybindings.json"
+[
+  {
+    // soft ć is free on my keyboard: ctrl+shift+ć
+    "key": "ctrl+shift+oem_7",
+    "command": "workbench.action.findInFiles",
+    "args": {
+      "query": "([\\.?!])(\\n[^\\n])",
+      "replace": "$1  $2",
+      "filesToInclude":"*.md",
+      "isRegex": true,
+      "wholeWord": false
+    }
+  }
+]
+```
+
+Another solution that is maybe more "user friendly" is to use javascript macros with the extension
+<https://marketplace.visualstudio.com/items?itemName=EXCEEDSYSTEM.vscode-macros>
+In File-Preferences-Settings-VSCodeMacros input in Macro file path `./.vscode/macros.js`.  
+Then in .vscode folder I put the file macros.js:
+
+```javascript
+const vscode = require('vscode');
+
+module.exports.macroCommands = {
+   MarkdownDoubleSpaceNewLineMacro: {
+      no: 1,
+      func: funcMarkdownDoubleSpaceNewLineMacro
+   },
+};
+
+/// Markdown peculiarity is that one Newline is ignored and replaced with space.  
+/// For new paragraph there must be double newline.  
+/// But I like ti use soft-newline or <br>. For that is a strange doublespace plus newline.  
+/// The problem is that it is easy to forget and impossible to see, because space is invisible.  
+/// This macro will open replace in all .md files and with regex find and replace when I forget it.  
+function funcMarkdownDoubleSpaceNewLineMacro() {
+   // https://code.visualstudio.com/api/references/commands
+   vscode.commands.executeCommand('workbench.action.findInFiles',{
+      query: "([\\.?!])(\\n[^\\n])",
+      replace: "$1  $2",
+      filesToInclude:"*.md",
+      isRegex: true,
+      triggerSearch: true,
+      matchWholeWord: false,
+      isCaseSensitive: false,
+  });
+}
+```
+
+To use it press F1 - VSCMacros:Run a macro - MarkdownDoubleSpaceNewline, it will open the Find file window with all the problematic lines.  
+This could be also added to `keybindings.js` for global access.
+
+
+## Git for windows and git-bash
+
+Git is the legendary version control and I use it everywhere: in Windows, Debian and inside CRDE container.  
+In windows install from <https://git-scm.com/download/win>  
+
+When you install Git for Windows it comes prepacked with Git Bash, a Linux terminal emulator. Git Bash is particularly useful because it lets you run both Linux and Windows commands from the same terminal and access the underlying Windows file system. 
+
+I will use git-bash for all my terminal needs in Windows. I despise command prompt and PowerShell. Avoid them as possible.  
+
+Add to windows env var path ( right-click on Start - System- Advanced system settings - Environment variables - User variables - Path - Edit - New...)  
+`C:\Program Files\Git`  
+So the command git-bash will work globally in windows.  
+
+## Git-bash as default terminal in VSCode
+
+I want git-bash to be my default terminal inside VSCode for Windows.
+In VSCode press F1 - Preferences: Open user settings (JSON) and add:  
+
+```json
+{
+  ...
+  ...
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash",
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe"
+        }
+    },
+    "terminal.integrated.automationProfile.windows": {
+        "path":  "C:\\Program Files\\Git\\bin\\bash.exe"
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash"
+}
+```
+
+## SSH in Windows (Git SSH)
+
+SSH is great. In Linux it works seamlessly. In windows it came late to the party and this bring some problems.
+
+### Remove incompatible solutions
+
+**WARNING:** there are many incompatible SSH solutions for windows and it can be a mess if there are more than one solution installed. I chose to use only the **SSH** that comes with [git for windows](https://git-scm.com/download/win).  
+
+1. First I removed the "OpenSSH components in Optional Features".  
+In `Manage Optional Features` uninstall OpenSSH client and Server. They are some old version anyway. Sadly, it will leave some files behind:  
+Delete the folder `c:\Windows\System32\OpenSSH\`. The owner is TrustedInstaller, so first you have to change the owner to you and then give permission to administrators to Full Control. Then you can finally delete it as administrator.
+
+2. I tried and disliked the newer OpenSSH from `winget search "openssh beta"`. Microsoft was so bold to store the private ssh keys "unprotected" into the registry. So they survive a reboot of the system. That is shockingly different from the way ssh-agent works in Linux. Bad Microsoft! Unsecure by default!  
+Uninstalled it with `winget uninstall "openssh beta"`  
+Check if the folder `c:\Program Files\OpenSSH` does not exist. 
+
+3. Check if git for windows didn't change the default ssh executable.
+If misconfigured, this could disallow VSCode to push to GitHub.  
+
+```bash
+git config --get core.sshCommand
+```
+
+This must return "empty".  
+And check that the env variable GIT_SSH is not set in git-bash.
+
+```bash
+echo $GIT_SSH
+```
+
+This must return "empty".
+
+4. To be sure, I searched all my `C:` disk and found only one `ssh.exe` in `C:\Program Files\Git\usr\bin\ssh.exe`. Good!
+
+### ssh-agent
+
+Every time I connect over SSH I must input the passcode for my SSH identity.  
+Windows has also`ssh-agent` and I could use it just the same as in Linux bash to avoid retyping the passcode every time.  
+I chose to use only the `ssh-agent.exe` that comes with [git for windows](https://git-scm.com/download/win).  
+
+I want the ssh-agent to start when I manually run the git-bash console. I wrote a little script in [~/.bashrc](docker_rust_development_install\win_home_dot_bashrc) file for git-bash in Windows.  
+
+Maybe it looks confusing, but git-bash treats the windows path in the Linux way. `~` is the home folder and slash `/` instead of the `\` backslash. Smart!  
+
+Now every time I open the terminal for git-bash ("C:\Program Files\Git\git-bash.exe") it will start the agent if needed and show the command to store the ssh keys.  
+The ssh-agent is a windows background process. It retains the keys in memory until we stop the process or command a `ssh-add -D`. ANd most important, it cannot survive a reboot of any kind.  
+
+Warning: Git-bash and ssh-agent must run before VSCode. If a window of VSCode is opened before, it will not use it. Nor the newly opened windows of VSCode. Close all VSCode windows and try again.
+
+### ssh config
+
+It is recommended to use the `~/.ssh/config` file to assign explicitly one ssh key to one ssh server.  
+If not, ssh-agent will send all the keys to the server and the server could refute the connection because of too many bad keys.  
+
+In Windows I use SSH for:
+
+- connect over SSH to CRDE - Containerized Rust Development Environment
+- push to GitHub over SSH  
+- sync files with my Web server on Google Cloud
+
+This configuration worked for me:
+
+I have 2 separate config files for Windows and WSL, but I use only the private keys from inside WSL. So I don't have to copy them into Windows.  
+In Linux [~\.ssh\config](docker_rust_development_install\wsl_ssh_config.ssh_config) I used the paths like `~/.ssh/key`.  
+
+```conf
+Host localhost_2201_rustdevuser_ssh_1
+    HostName localhost
+    Port 2201
+    User rustdevuser
+    IdentityFile ~/.ssh/localhost_2201_rustdevuser_ssh_1
+
+Host github_com_git_ssh_1
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_com_git_ssh_1
+	
+Host bestia_dev_luciano_bestia_ssh_1
+    HostName bestia.dev
+    User luciano_bestia
+    IdentityFile ~/.ssh/bestia_dev_luciano_bestia_ssh_1
+
+```
+
+In Windows ["C:\Users\luciano\.ssh\config"](docker_rust_development_install\win_home_ssh_config.ssh_config) I used the paths like `//wsl.localhost/Debian/home/luciano/.ssh/key`.  
+
+```conf
+Host localhost_2201_rustdevuser_ssh_1
+    HostName localhost
+    Port 2201
+    User rustdevuser
+    IdentityFile //wsl.localhost/Debian/home/luciano/.ssh/localhost_2201_rustdevuser_ssh_1
+
+Host github_com_git_ssh_1
+    HostName github.com
+    User git
+    IdentityFile //wsl.localhost/Debian/home/luciano/.ssh/github_com_git_ssh_1
+	
+Host bestia_dev_luciano_bestia_ssh_1
+    HostName bestia.dev
+    User luciano_bestia
+    IdentityFile //wsl.localhost/Debian/home/luciano/.ssh/bestia_dev_luciano_bestia_ssh_1
+
+```
+
+In VSCode I specify the use of Git ssh-agent and config files explicitly, to avoid any confusion.  
+In Settings find and set:
+
+```conf
+"remote.SSH.path": "C:\Program Files\Git\usr\bin\ssh.exe"
+"remote.SSH.config": "C:\Users\luciano\.ssh\config"
+```
+
+This will allow VSCode to use the private ssh keys from the ssh-agent from git-bash. And it is reading the private key from WSL. Sweet!  
+
+### Unsuccessful combinations
+
+1. I tried to use SSH from WSL and it didn't work just because the path of `~/.ssh/config` in windows is different than the path in Linux. If this small difference could be overcome somehow (in the VSCode extension), it would probably work! Abandoned!
+
+2. I tried to use the git-bash ssh with the config from WSL. It didn't work because the paths inside the config are different in windows then the paths in Linux. Not working!
+
+3. Standard ssh-add have some options like -c and -t, but they are not recognized by the windows ssh. Instead of a reasonable error it writes only that the the agent failed. Then you have to guess why and spend a lot of time experimenting. Bad error messages!  
+
+## VSCode and CRDE Rust programming in container
 
 Follow instructions: <https://github.com/bestia-dev/docker_rust_development>  
 
