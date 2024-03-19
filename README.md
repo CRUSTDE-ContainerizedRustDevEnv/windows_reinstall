@@ -4,7 +4,7 @@
 
 [//]: # (auto_cargo_toml_to_md start)
 
-**Description of my development environment for Rust**  
+**Description of my Windows and Linux development environment for Rust**  
 ***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/development_environment)***  
 
 **WARNING !!! This is a public repository: never write or save secrets here!!!**
