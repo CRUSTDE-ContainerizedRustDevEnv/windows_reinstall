@@ -313,7 +313,7 @@ This will allow VSCode to use the private ssh keys from the ssh-agent from git-b
 
 ## VSCode and CRUSTDE Rust programming in container
 
-Follow instructions: <https://github.com/bestia-dev/docker_rust_development>  
+Follow instructions: <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/docker_rust_development>  
 
 ## Shotcut
 

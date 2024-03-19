@@ -5,7 +5,7 @@
 [//]: # (auto_cargo_toml_to_md start)
 
 **Description of my Windows and Linux development environment for Rust**  
-***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/development_environment)***  
+***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/development_environment)***  
 
  ![tutorial](https://img.shields.io/badge/tutorial-yellow)
  ![development_environment](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
@@ -26,7 +26,7 @@ Windows installation with all the usual programs is described in detail in [win_
 
 ## WSL Debian
 
-To Install Debian Linux inside Windows WSL follow the instructions: <https://github.com/bestia-dev/win10_wsl2_debian11>  
+To Install Debian Linux inside Windows WSL follow the instructions: <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11>  
 In Debian bash terminal add some prerequisites:  
 `mkdir ~/.ssh` and from my vault copy the private and public keys:
 
@@ -46,15 +46,15 @@ Copy other files like `~/.bashrc`, `sshadd.sh` from  `ImportantConfigurationFile
 Restart Debian and Wsl: in Powershell run `wsl --shutdown`.  
 
 Install prerequisites for development in CRUSTDE container.  
-Install Podman from the instructions: https://github.com/bestia-dev/docker_rust_development>
+Install Podman from the instructions: https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/docker_rust_development>
 
 ## Rust on Linux
 
 These days I mostly program with Rust on Linux.  
 My primary desktop is Win10. Inside it I have WSL2, which is a Linux Virtual Machine. There I installed Debian 12 Bookworm.  
-I made a detailed description in <https://github.com/bestia-dev/win10_wsl2_debian11>.
+I made a detailed description in <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11>.
 
-I use `CRUSTDE - Containerized Rust Development Environment` described here <https://github.com/bestia-dev/docker_rust_development>.  
+I use `CRUSTDE - Containerized Rust Development Environment` described here <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/docker_rust_development>.  
 This CRUSTDE container is ephemeral and can be destroyed at any time. The important files inside it must be pushed to GitHub, or else they will be destroyed with the CRUSTDE container.  
 
 [//]: # (auto_plantuml start)
@@ -71,7 +71,7 @@ CRUSTDE -> GitHub: push
 
 </details>
 
-![svg_github_container](https://github.com/bestia-dev/development_environment/raw/main/images/svg_github_container.svg)
+![svg_github_container](https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/development_environment/raw/main/images/svg_github_container.svg)
 
 [//]: # (auto_plantuml end)
 
@@ -96,7 +96,7 @@ GitHub -> github_backup: clone, pull
 
 </details>
 
-![svg_github_backup](https://github.com/bestia-dev/development_environment/raw/main/images/svg_github_backup.svg)
+![svg_github_backup](https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/development_environment/raw/main/images/svg_github_backup.svg)
 
 [//]: # (auto_plantuml end)
 
@@ -120,7 +120,7 @@ Dropbox -> ext.hd_backup: backup
 
 </details>
 
-![svg_dropbox](https://github.com/bestia-dev/development_environment/raw/main/images/svg_dropbox.svg)
+![svg_dropbox](https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/development_environment/raw/main/images/svg_dropbox.svg)
 
 [//]: # (auto_plantuml end)
 
@@ -144,7 +144,7 @@ Dropbox -> ext.hd_backup: backup
 
 </details>
 
-![svg_android_studio](https://github.com/bestia-dev/development_environment/raw/main/images/svg_android_studio.svg)
+![svg_android_studio](https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/development_environment/raw/main/images/svg_android_studio.svg)
 
 [//]: # (auto_plantuml end)
 
