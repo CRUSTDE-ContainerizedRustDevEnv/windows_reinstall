@@ -2,6 +2,14 @@
 # Here we start ssh-agent.exe in a background process that is accessible from windows.
 # It is used by ssh client, git and VSCode remote extension.
 
+# Luciano 2024-03-17: I added some commands for my configuration of git-bash (for Rust development)
+# ~/.bashrc is executed by bash for non-login interactive shells every time.  (not for login non-interactive scripts)
+
+alias l="ls -al"
+alias ll="ls -l"
+
+# region: ssh-agent and sshadd
+
 env=~/.ssh/agent.env
 
 agent_load_env () { test -f "$env" && . "$env" | /dev/null ; }
@@ -16,33 +24,18 @@ agent_load_env
 agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
 
 if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
-    echo "Starting ssh-agent as a windows process in the background in Task Manager"
+    echo -e "  \033[33m Starting ssh-agent as a windows process in the background (look up in Task Manager)  \033[0m"
     agent_start
-    echo "Setting Windows SSH user environment variables (pid: $SSH_AGENT_PID, sock: $SSH_AUTH_SOCK)"
-    setx SSH_AGENT_PID "$SSH_AGENT_PID"
-    setx SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
+    # echo "Setting Windows SSH user environment variables (pid: $SSH_AGENT_PID, sock: $SSH_AUTH_SOCK)"
+    setx SSH_AGENT_PID "$SSH_AGENT_PID" > /dev/null
+    setx SSH_AUTH_SOCK "$SSH_AUTH_SOCK" > /dev/null
 fi
-echo " "
-echo "Add often used SSH identity private keys to ssh-agent"
-echo " "
-echo "The ssh-agent should be started already on git-bash start inside the ~/.bashrc script."
-echo "The ssh-agent runs as a windows process in the background."
-echo "It stores the keys in memory until the process is terminated."
-echo "When finished using the keys, you can stop the process 'ssh-agent.exe'."
-echo " "
-echo "It is recommended to use the ~/.ssh/config file to assign explicitly one ssh key to one ssh server."
-echo "If not, ssh-agent will send all the keys to the server and the server could refute the connection because of too many bad keys."
-echo " "
-echo "ssh-add //wsl.localhost/Debian/home/luciano/.ssh/localhost_2201_rustdevuser_ssh_1"
-echo "ssh-add //wsl.localhost/Debian/home/luciano/.ssh/github_com_git_ssh_1"
-echo "ssh-add //wsl.localhost/Debian/home/luciano/.ssh/bestia_dev_luciano_bestia_ssh_1"
-echo " "
-echo "For security, when you are finished using the keys, remove them from the ssh-agent with:"
-echo "ssh-add -D"
-echo " "
-echo "List public fingerprints inside ssh-agent:"
-echo "ssh-add -l"
-ssh-add -l
+
+echo -e "  \033[33m Use the global command 'sshadd' to simply add your private SSH keys to ssh-agent $SSH_AGENT_PID. \033[0m"
+alias sshadd="echo sh ~/.ssh/sshadd.sh; sh ~/.ssh/sshadd.sh"
+
+# endregion: ssh-agent and sshadd
+
 echo " "
 
 unset env

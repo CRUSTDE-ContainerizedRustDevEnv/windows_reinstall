@@ -125,13 +125,16 @@ alias ll="ls -l"
 # Added to bashrc for easy sshadd and postgres
 export PATH=$HOME/bin:$PATH
 
+# region: ssh-agent and sshadd
 SSH_ENV="$HOME/.ssh/agent-environment"
 
 function start_agent {
+    echo -e "  \033[33m Starting ssh-agent as in the background (look up with 'ps -ef')  \033[0m"
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
     chmod 600 "${SSH_ENV}"
     . "${SSH_ENV}" > /dev/null
     /usr/bin/ssh-add;
+
 }
 
 # Source SSH settings, if applicable
@@ -144,14 +147,16 @@ else
     start_agent;
 fi
 
+echo -e "  \033[33m Use the global command 'sshadd' to simply add your private SSH keys to ssh-agent $SSH_AGENT_PID.  \033[0m"
+alias sshadd="echo sh ~/.ssh/sshadd.sh; sh ~/.ssh/sshadd.sh"
+
+# endregion: ssh-agent and sshadd
+
 # postgresql-client needs this language variables
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="C"
 
-echo "Use the global command 'sshadd' to simply add your private SSH keys to ssh-agent $SSH_AGENT_PID."
-alias sshadd="echo sh ~/.ssh/sshadd.sh; sh ~/.ssh/sshadd.sh"
-
-echo "run sh ~/rustprojects/docker_rust_development_install/rust_dev_pod_after_reboot.sh to prepare the Rust development container after reboot"
+echo -e "  \033[33m run sh ~/rustprojects/docker_rust_development_install/rust_dev_pod_after_reboot.sh to prepare the CRDE Rust Development Container after reboot.  \033[0m"
 
 # . "$HOME/.cargo/env"
 
@@ -161,9 +166,10 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 # dev_bestia_cargo_completion
 complete -C dev_bestia_cargo_completion cargo
 
-
 # disable XON/XOFF flow control
+# because ctrl-s suddenly blocks the terminal
+# and nobody knows what really happened. This is unintuitive.
 stty -ixon
 bind -r "\C-s"  
-# disabel ctrl-b, because I want VSCode to use it.
+# disable ctrl-b, because I want VSCode to use it.
 bind -r "\C-b"  
