@@ -210,7 +210,7 @@ Find the code [here](configuration_files/win_files/c/Users/luciano/AppData/Roami
 
 ## Git for windows and git-bash
 
-Git is the legendary version control and I use it everywhere: in Windows, Debian and inside CRDE container.  
+Git is the legendary version control and I use it everywhere: in Windows, Debian and inside CRUSTDE container.  
 In windows install from <https://git-scm.com/download/win>  
 
 When you install Git for Windows it comes prepacked with Git Bash, a Linux terminal emulator. Git Bash is particularly useful because it lets you run both Linux and Windows commands from the same terminal and access the underlying Windows file system. 
@@ -282,7 +282,7 @@ If not, ssh-agent will send all the keys to the server and the server could refu
 
 In Windows I use SSH for:
 
-- connect over SSH to CRDE - Containerized Rust Development Environment
+- connect over SSH to CRUSTDE - Containerized Rust Development Environment
 - push to GitHub over SSH  
 - sync files with my Web server on Google Cloud
 
@@ -311,7 +311,7 @@ This will allow VSCode to use the private ssh keys from the ssh-agent from git-b
 
 3. Standard ssh-add have some options like -c and -t, but they are not recognized by the windows ssh. Instead of a reasonable error it writes only that the the agent failed. Then you have to guess why and spend a lot of time experimenting. Bad error messages!  
 
-## VSCode and CRDE Rust programming in container
+## VSCode and CRUSTDE Rust programming in container
 
 Follow instructions: <https://github.com/bestia-dev/docker_rust_development>  
 

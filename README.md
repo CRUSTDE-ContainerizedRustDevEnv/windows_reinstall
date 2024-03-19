@@ -42,7 +42,7 @@ sudo chmod 600 bestia_dev_luciano_bestia_ssh_1
 Copy other files like `~/.bashrc`, `sshadd.sh` from  `ImportantConfigurationFiles\debian_files`.  
 Restart Debian and Wsl: in Powershell run `wsl --shutdown`.  
 
-Install prerequisites for development in CRDE container.  
+Install prerequisites for development in CRUSTDE container.  
 Install Podman from the instructions: https://github.com/bestia-dev/docker_rust_development>
 
 ## Rust on Linux
@@ -51,8 +51,8 @@ These days I mostly program with Rust on Linux.
 My primary desktop is Win10. Inside it I have WSL2, which is a Linux Virtual Machine. There I installed Debian 12 Bookworm.  
 I made a detailed description in <https://github.com/bestia-dev/win10_wsl2_debian11>.
 
-I use `CRDE - Containerized Rust Development Environment` described here <https://github.com/bestia-dev/docker_rust_development>.  
-This CRDE container is ephemeral and can be destroyed at any time. The important files inside it must be pushed to GitHub, or else they will be destroyed with the CRDE container.  
+I use `CRUSTDE - Containerized Rust Development Environment` described here <https://github.com/bestia-dev/docker_rust_development>.  
+This CRUSTDE container is ephemeral and can be destroyed at any time. The important files inside it must be pushed to GitHub, or else they will be destroyed with the CRUSTDE container.  
 
 [//]: # (auto_plantuml start)
 <!-- markdownlint-disable MD033 -->
@@ -61,8 +61,8 @@ This CRDE container is ephemeral and can be destroyed at any time. The important
 
 ```plantuml
 @startuml
-GitHub -> CRDE: clone, pull
-CRDE -> GitHub: push
+GitHub -> CRUSTDE: clone, pull
+CRUSTDE -> GitHub: push
 @enduml
 ```
 
@@ -150,7 +150,7 @@ These are usually small files and having them go up and down the internet 4 time
 ## Rust on Windows
 
 I don't want to install rust on my windows machine.  
-I will try to use a cross compile inside the CRDE container.  
+I will try to use a cross compile inside the CRUSTDE container.  
 
 ## websites
 
@@ -231,7 +231,7 @@ LICENSE text eol=lf
 
 ## Linux shutdown (on bare metal)
 
-For some time I used to dual-boot into Debian Linux. And there I use Podman to develop in Rust inside a CRDE container. Compiling was much faster than inside the WSL. Probably because of file access. I suppose there are hundreds of small files and that is the major speed difference.  
+For some time I used to dual-boot into Debian Linux. And there I use Podman to develop in Rust inside a CRUSTDE container. Compiling was much faster than inside the WSL. Probably because of file access. I suppose there are hundreds of small files and that is the major speed difference.  
 I think the performance of WSL is better now. So I decided to use Debian in WSL2 on Win10 again.  
 The standard Linux shutdown was very slow because of Podman. So I created a small bash script `~/shut.sh`:  
 
