@@ -7,12 +7,15 @@
 **Description of my Windows and Linux development environment for Rust**  
 ***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/bestia-dev/development_environment)***  
 
-**WARNING !!! This is a public repository: never write or save secrets here!!!**
+ ![tutorial](https://img.shields.io/badge/tutorial-yellow)
+ ![development_environment](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
 
 [//]: # (auto_cargo_toml_to_md end)
 
- ![tutorial](https://img.shields.io/badge/tutorial-yellow)
- ![development_environment](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
+**WARNING !!! This is a public repository: never write or save secrets here!!!**
+
+ ![logo](https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-Dev-Env/CRUSTDE-Containerized-Rust-Dev-Env/main/images/crustde_250x250.png)
+ development_environment is a member of the [CRUSTDE-Containerized-Rust-Dev-Env](https://github.com/orgs/CRUSTDE-Containerized-Rust-Dev-Env/repositories?q=sort%3Aname-asc) project.
 
 Hashtags: #rustlang #tutorial #buildtool #developmenttool  
 My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
