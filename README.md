@@ -26,33 +26,12 @@ Windows installation with all the usual programs is described in detail in [win_
 
 ## WSL Debian
 
-To Install Debian Linux inside Windows WSL follow the instructions: <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11>  
-In Debian bash terminal add some prerequisites:  
-`mkdir ~/.ssh` and from my vault copy the private and public keys:
+To Install Debian Linux inside Windows WSL2 follow the instructions: <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11>  
 
-- github_com_git_ssh_1
-- github_com_git_ssh_1.pub
-- bestia_dev_luciano_bestia_ssh_1
-- bestia_dev_luciano_bestia_ssh_1.pub  
-
-Protect the private files
-
-```bash
-sudo chmod 600 github_com_git_ssh_1
-sudo chmod 600 bestia_dev_luciano_bestia_ssh_1
-```
-
-Copy other files like `~/.bashrc`, `sshadd.sh` from  `ImportantConfigurationFiles\debian_files`.  
-Restart Debian and Wsl: in Powershell run `wsl --shutdown`.  
-
-Install prerequisites for development in CRUSTDE container.  
-Install Podman from the instructions: https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/docker_rust_development>
-
-## Rust on Linux
+## CRUSTDE - Containerized Rust Development Environment
 
 These days I mostly program with Rust on Linux.  
-My primary desktop is Win10. Inside it I have WSL2, which is a Linux Virtual Machine. There I installed Debian 12 Bookworm.  
-I made a detailed description in <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11>.
+My primary desktop is Win10. Inside it I have WSL2, which is a Linux Virtual Machine. There I installed Debian 12 Bookworm. And now I can use a Linux container with Podman. 
 
 I use `CRUSTDE - Containerized Rust Development Environment` described here <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/docker_rust_development>.  
 This CRUSTDE container is ephemeral and can be destroyed at any time. The important files inside it must be pushed to GitHub, or else they will be destroyed with the CRUSTDE container.  

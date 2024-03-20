@@ -1,5 +1,3 @@
 # Totalcmd configuration files
 
-The wincmd.key is in my encrypted vault.
-
-The passwords in wcx_ftp.ini are encrypted with a master passcode.
+The wincmd.key and wcx_ftp.ini are in my encrypted vault.

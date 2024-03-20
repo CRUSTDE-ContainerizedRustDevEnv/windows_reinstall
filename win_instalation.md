@@ -28,7 +28,9 @@ I have the Dropbox folder on my `D:` partition. So it will survive the reinstall
 Backup, backup, backup... Do it all the time. Disks can die in an instant and you loose everything.  
 It is funny that in Win10, the name of this function is "Backup and Restore (Windows 7)".  
 Open the System Backup Image Tool. In Windows 10, head to Control Panel > Backup and Restore (Windows 7) > Create a System Image onto an external disk.  
-A system image contains everything: data, programs, OS, config,...  
+A system image contains everything: data, programs, OS, config,... from the `C:` drive.  
+
+The `D:` drive contains only data and is much more easy to backup/copy. I just copy all the files to an external drive. And I have Dropbox installed to sync this drive to the cloud.  
 
 ## Download ISO for Win10
 
@@ -105,18 +107,6 @@ Press Win+V and enable Clipboard manager to have more than one item in clipboard
 I want to uninstall OneDrive, because I use Dropbox. Apps & features - Microsoft One Drive - Uninstall.  
 Similarly uninstall Skype, Movies, Sticky notes, Weather, XBox, Maps, Mail... all apps that I already have and are NOT from Microsoft.  
 
-## Certificates
-
-I have some personal certificates for use with the government and some ssh certificates for communication. The backup of my keys are in my encrypted vault.  
-
-Copy ssh keys to windows "c:\Users\Luciano\.ssh\" folder.  
-Protect the private key as instructed in the README.md file in the encrypted vault.  
-
-Copy the certificate .p12 files somewhere locally temporarily.  
-In windows type mmc into Start and choose File - Add Remove Snap-in - Certificates - Personal.  
-Right click - All tasks - Import - browse the certificate .p12 file - choose high security asks a password on every use of certificate.  
-Delete the temporary -p12 files.  
-
 ## Install Programs
 
 A bunch of programs must be installed for a usable machine for development.
@@ -124,13 +114,32 @@ A bunch of programs must be installed for a usable machine for development.
 ## TotalCmd
 
 Download 64bit from <https://www.ghisler.com/>  
-Copy the settings from "./ImportantConfigurationFiles": c\Program Files\totalcmd and C\Users\luciano\AppData\Roaming\GHISLER.  
-Some secrets are in files in my encrypted vault.  
+Install the plugins from [ghisler.com](https://www.ghisler.com/addons.htm):
+
+```conf
+wdx
+    wdx_exif
+wfx
+    cloudplugin
+    sftpplug
+    webdav
+wlx
+    slister
+    wfx_pdfview
+```
+
+Copy the settings from [here](configuration_files/win_files/c/Users/luciano/AppData/Roaming/GHISLER) to `C:\Users\luciano\AppData\Roaming\GHISLER`.  
+Some files are stored in my encrypted vault.  
 Run and Pin to taskbar and Pin to start menu  
 
 ## Notepad++
 
 <https://notepad-plus-plus.org/downloads/>
+
+## Firefox
+
+<https://www.mozilla.org/en-US/firefox/new/>
+I use firefox just for programming purpose, because Rust was born at Mozilla.  
 
 ## paint.net
 
@@ -151,24 +160,19 @@ FYI: There is also the folder `%ProgramData%\Microsoft\Windows\Start Menu\Progra
 
 <https://www.libreoffice.org/download/download-libreoffice/>  
 345 MB  
-TODO: I don't like autocomplete. Disable all of that.  
+I don't like autocomplete. Disable all of that.  
 
 ## whatsapp
 
 It is already prepared in Win10, but it still needs to download the latest version.  
 Run it and it shows a QR code. On the smartphone open Whatsapp-Settings - QRCode-Scan code and then Link the device.
 
-## Firefox
-
-<https://www.mozilla.org/en-US/firefox/new/>
-I use firefox just for programming purpose, because Rust was born at Mozilla.  
-
 ## Dropbox
 
 I splitted my SSD into partitions `C:` and `D:`. Every time I reinstall windows I completely format the `C:` partition, but the `D:` partition remains intact.  
 I have the Dropbox folder on my `D:` partition. So it will survive the reinstall of windows. It is also better for backups to have separate system disk and data disk.
 
-I already had Dropbox on my PC and used "Selective folders". Now I want to install it again, but I don't want to make a mess with my files.  
+I already had Dropbox on my PC before the reinstall and used "Selective folders". Now I want to install it again, but I don't want to make a mess with my files.  
 I will rename d:\Dropbox into d:\Dropbox_old.  
 Login to <https://www.dropbox.com/home>. Click on profile right top and choose "Install dropbox app" - Download dropbox app. Run DropboxInstaller.exe.  
 The browser should stay open on the users dropbox page. After installation the application will use the browser to login.  
@@ -177,54 +181,37 @@ Advanced - location D:\Dropbox. Done. Wait a little to start. And then click the
 Now I can rename the D:\Dropbox_old to d:\Dropbox. Start Dropbox. It will index for 10 minutes.  
 If there is a conflict Dropbox will create a new file with the name containing the word "conflict".  
 
-## WezTerm
-
-WezTerm is a powerful cross-platform terminal emulator and multiplexer written in Rust.  
-I prefer to use it instead of Windows Console, Windows Terminal, xterm or terminator.  
-I had a problem that using the Windows Clipboard Manager for "multi item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications, because it does not run a command if it finds a character for Enter when pasting. It waits that the user reads what is pasted and then presses Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website there are many technics to hide visually a text, but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
-<https://cirw.in/blog/bracketed-paste>  
-The Clipboard Manager is sending ctrl+v under the hood. That key combination means "the next character will be taken literally". Then shift-ctrl-v pastes the "bracketed paste" that starts with ^[[200~. But unfortunately the first character is not understood as a special code, but as a normal character "literally".  
-Create/edit the configuration .lua file to ignore the ctrl+v key binding.  
-In the lua config file is defined that wezterm opens by default into WSL:Debian.  
-On start opens 2 windows side-by-side for WSL:Debian and git-bash.
-
-The template for `$HOME\.config\wezterm\wezterm.lua` is [here](configuration_files/win_files/c/Users/luciano/.config/wezterm/wezterm.lua).  
-
-## VSCode
-
-<https://code.visualstudio.com/download>  
-Backup and sync setting with my github account bestia-dev.  
-WARNING: Don't install `WSL extension``. It is not needed for work in WSL folders from Windows and it disables the remote ssh connection for VSCode!  
-I always want to use LF and not CRLF. Press F1 - Preferences: Open user settings (JSON) and add the json template from [here](configuration_files/vscode_settings.json).  
-
-### VSCode Markdown
-
-One peculiarity of Markdown is that a single NewLine is completely ignored and transformed into a space.  
-If you want to make a new paragraph you need to write 2 Newlines character and that is ok.  
-But if you want a `<br>` soft-newline then you need to write space+space+newline. This is very peculiar.  
-I like this soft-newline a lot and use it very often. But it is very easy to forget and impossible to see because space are invisible.  
-I created a shortcut `ctrl+shift+ć` that opens a search and replace with the regex to correct this if I forgot it somewhere.  
-
-Write key bindings in "C:\Users\luciano\AppData\Roaming\Code\User\keybindings.json".  
-Find the code [here](configuration_files/win_files/c/Users/luciano/AppData/Roaming/Code/User/keybindings.json).
-
 ## Git for windows and git-bash
 
 Git is the legendary version control and I use it everywhere: in Windows, Debian and inside CRUSTDE container.  
 In windows install from <https://git-scm.com/download/win>  
 
-When you install Git for Windows it comes prepacked with Git Bash, a Linux terminal emulator. Git Bash is particularly useful because it lets you run both Linux and Windows commands from the same terminal and access the underlying Windows file system. 
+When you install Git for Windows it comes prepacked with Git Bash, a Linux terminal emulator. Git Bash is particularly useful because it lets you run both Linux and Windows commands from the same terminal and access the underlying Windows file system.
 
 I will use git-bash for all my terminal needs in Windows. I despise command prompt and PowerShell. Avoid them as possible.  
 
 Add to windows env var path ( right-click on Start - System- Advanced system settings - Environment variables - User variables - Path - Edit - New...)  
 `C:\Program Files\Git`  
-So the command git-bash will work globally in windows.  
+So the command `git-bash` will work globally in windows.  
 
-## Git-bash as default terminal in VSCode
+Config git in `git-bash`:
 
-I want git-bash to be my default terminal inside VSCode for Windows.
-In VSCode press F1 - Preferences: Open user settings (JSON) and copy the settings of "terminal.integrated" from [here](configuration_files/vscode_settings.json).
+```bash
+git --version
+# git version 2.44.0.windows.1
+ssh -V
+# OpenSSH_9.6p1, OpenSSL 3.2.1 30 Jan 2024
+
+# config git globally
+git config --global user.name "Your Name"
+git config --global user.email "youremail@yourdomain.com"
+# for windows only:
+git config --global core.eol lf
+git config --global core.autocrlf input
+# VSCode is my primary editor
+git config --global core.editor "C:\Users\luciano\AppData\Local\Programs\Microsoft VS Code\bin\code" --wait
+git config --global -l
+```
 
 ## SSH in Windows (Git SSH)
 
@@ -263,15 +250,14 @@ This must return "empty".
 ### ssh-agent in Windows
 
 Every time I connect over SSH I must input the passcode for my SSH identity.  
-Windows has also`ssh-agent` and I could use it just the same as in Linux bash to avoid retyping the passcode every time.  
-I chose to use only the `ssh-agent.exe` that comes with [git for windows](https://git-scm.com/download/win).  
+Git-bash also comes with `ssh-agent` and I could use it just the same as in Linux bash to avoid retyping the passcode every time.   
 
 I want the ssh-agent to start when I manually run the git-bash console. I wrote a little script in `~/.bashrc` file for git-bash in Windows. Find the code [here](configuration_files/win_files/c/Users/luciano/.bashrc).  
 
-Maybe it looks confusing, but git-bash treats the windows path in the Linux way. `~` is the home folder and slash `/` instead of the `\` backslash. Smart!  
+Maybe it looks confusing, but git-bash by default translates Linux paths into Windows paths. `~` is the home folder and slash `/` instead of the `\` backslash. Smart!  
 
-Now every time I open the terminal for git-bash ("C:\Program Files\Git\git-bash.exe") it will start the agent if needed and show the command to store the ssh keys.  
-The ssh-agent is a windows background process. It retains the keys in memory until we stop the process or command a `ssh-add -D`. ANd most important, it cannot survive a reboot of any kind.  
+Now every time I open the terminal for `git-bash` it will start the agent. Use the command `sshadd` to store the ssh keys in ssh-agent.  
+The ssh-agent is a windows background process. It retains the keys in memory until we stop the process or command `ssh-add -D`. ANd most important, it cannot survive a reboot of any kind.  
 
 Warning: Git-bash and ssh-agent must run before VSCode. If a window of VSCode is opened before, it will not use it. Nor the newly opened windows of VSCode. Close all VSCode windows and try again.
 
@@ -293,16 +279,6 @@ In Linux `~\.ssh\config` I used the paths like `~/.ssh/key`. Find the code [here
 
 In Windows "C:\Users\luciano\.ssh\config" I used the paths like `//wsl.localhost/Debian/home/luciano/.ssh/key`. Find the code [here](configuration_files/win_files/c/Users/luciano/.ssh/config).
 
-In VSCode I specify the use of Git ssh-agent and config files explicitly, to avoid any confusion.  
-In Settings find and set:
-
-```conf
-"remote.SSH.path": "C:\Program Files\Git\usr\bin\ssh.exe"
-"remote.SSH.config": "C:\Users\luciano\.ssh\config"
-```
-
-This will allow VSCode to use the private ssh keys from the ssh-agent from git-bash. And it is reading the private key from WSL. Sweet!  
-
 ### Unsuccessful combinations
 
 1. I tried to use SSH from WSL and it didn't work just because the path of `~/.ssh/config` in windows is different than the path in Linux. If this small difference could be overcome somehow (in the VSCode extension), it would probably work! Abandoned!
@@ -311,9 +287,53 @@ This will allow VSCode to use the private ssh keys from the ssh-agent from git-b
 
 3. Standard ssh-add have some options like -c and -t, but they are not recognized by the windows ssh. Instead of a reasonable error it writes only that the the agent failed. Then you have to guess why and spend a lot of time experimenting. Bad error messages!  
 
-## VSCode and CRUSTDE Rust programming in container
+## VSCode
 
-Follow instructions: <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/docker_rust_development>  
+<https://code.visualstudio.com/download>  
+Backup and sync setting with my github account bestia-dev.  
+
+WARNING: Don't install `WSL extension``. It is not needed for work in WSL folders from Windows and it disables the remote ssh connection for VSCode!  
+
+I have an opinionated configuration file I use:  
+I want git-bash to be my default terminal inside VSCode for Windows.  
+In VSCode I specify the use of Git ssh-agent and config files explicitly, to avoid any confusion.  
+I want alway to use LF instead of CRLF.  
+And so on...
+
+Press F1 - Preferences: Open user settings (JSON) and add the json template from [here](configuration_files/win_files/c/Users/luciano/AppData/Roaming/Code/User/settings.json).  
+
+### VSCode Markdown
+
+One peculiarity of Markdown is that a single NewLine is completely ignored and transformed into a space.  
+If you want to make a new paragraph you need to write 2 Newlines character and that is ok.  
+But if you want a `<br>` soft-newline then you need to write space+space+newline. This is very peculiar.  
+I like this soft-newline a lot and use it very often. But it is very easy to forget and impossible to see because space are invisible.  
+I created a shortcut `ctrl+shift+ć` that opens a search and replace with the regex to correct this if I forgot it somewhere.  
+
+Write key bindings in "C:\Users\luciano\AppData\Roaming\Code\User\keybindings.json".  
+Find the code [here](configuration_files/win_files/c/Users/luciano/AppData/Roaming/Code/User/keybindings.json).
+
+## WezTerm
+
+WezTerm is a powerful cross-platform terminal emulator and multiplexer written in Rust.  
+I prefer to use it instead of Windows Console, Windows Terminal, xterm or terminator.  
+I had a problem that using the Windows Clipboard Manager for "multi item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications, because it does not run a command if it finds a character for Enter when pasting. It waits that the user reads what is pasted and then presses Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website there are many technics to hide visually a text, but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
+<https://cirw.in/blog/bracketed-paste>  
+The Clipboard Manager is sending ctrl+v under the hood. That key combination means "the next character will be taken literally". Then shift-ctrl-v pastes the "bracketed paste" that starts with ^[[200~. But unfortunately the first character is not understood as a special code, but as a normal character "literally".  
+Create/edit the configuration .lua file to ignore the ctrl+v key binding.  
+In the lua config file is defined that wezterm opens by default into WSL:Debian.  
+On start opens 2 windows side-by-side for WSL:Debian and git-bash.
+
+The template for `$HOME\.config\wezterm\wezterm.lua` is [here](configuration_files/win_files/c/Users/luciano/.config/wezterm/wezterm.lua).  
+
+## Certificates
+
+I have some personal certificates for use with the government and some ssh certificates for communication. The backup of my keys are in my encrypted vault.  
+
+From the encrypted vault, copy the certificates .p12 files somewhere locally temporarily.  
+In windows type mmc into Start and choose File - Add Remove Snap-in - Certificates - Personal.  
+Right click - All tasks - Import - browse the certificate .p12 file - choose high security asks a password on every use of certificate. Don't make the private key exportable.  
+Git for Windows comes with `C:\Program Files\Git\usr\bin\shred.exe`. Use it to shred/delete the temporary .p12 files.
 
 ## Shotcut
 
