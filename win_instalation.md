@@ -113,24 +113,7 @@ A bunch of programs must be installed for a usable machine for development.
 
 ## TotalCmd
 
-Download 64bit from <https://www.ghisler.com/>  
-Install the plugins from [ghisler.com](https://www.ghisler.com/addons.htm):
-
-```conf
-wdx
-    wdx_exif
-wfx
-    cloudplugin
-    sftpplug
-    webdav
-wlx
-    slister
-    wfx_pdfview
-```
-
-Copy the settings from [here](configuration_files/win_files/c/Users/luciano/AppData/Roaming/GHISLER) to `C:\Users\luciano\AppData\Roaming\GHISLER`.  
-Some files are stored in my encrypted vault.  
-Run and Pin to taskbar and Pin to start menu  
+To Install an configure TotalCmd follow the instructions: <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/total_commander_best_file_manager>  
 
 ## Notepad++
 
