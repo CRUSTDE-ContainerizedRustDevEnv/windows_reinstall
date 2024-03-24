@@ -197,22 +197,30 @@ The Clipboard Manager is sending ctrl+v under the hood. That key combination mea
 Create/edit the configuration `wezterm.lua` file to ignore the ctrl+v key binding.  
 The template for `$HOME\.config\wezterm\wezterm.lua` is [here](configuration_files/win_files/c/Users/luciano/.config/wezterm/wezterm.lua).  
 
-After `git-bash` and `WSL:Debian` are installed create 2 icons to use Wezterm as their terminal:  
+After `git-bash` and `WSL:Debian` are installed create 2 icons on the Desktop to use Wezterm as their terminal.  
+Download the Debian ico in `git-bash`:
 
-Name: `git-bash`
+```bash
+curl https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11/main/images/Debian-logo.ico -o ~/.config/wezterm/Debian-logo.ico
+```
+
+Icon name: `git-bash`
 
 - Target: "C:\Program Files\WezTerm\wezterm-gui.exe" start -- "C:\\Program Files\\Git\\bin\\bash.exe" -l
 - Windows: Maximized
 - Icon: `%ProgramFiles%\Git\git-bash.exe`
 
-Download the Debian ico from <https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11/main/images/Debian-logo.ico> to 
-
-Name: `WSL:Debian`
+Icon name: `WSL:Debian`
 
 - Target: "C:\Program Files\WezTerm\wezterm-gui.exe" start --domain WSL:Debian
 - Windows: Maximized
-- Icon: `%ProgramFiles%\Git\git-bash.exe`
+- Icon: `%UserProfile%\.config\wezterm\Debian-logo.ico`
 
+The icons on the Desktop should look like this:
+
+![Icons on Desktop](https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-Dev-Env/development_environment/main/images/Wezterm_git_bash_wsl_debian.png)
+
+You can now `Pin to start` or `Pin to taskbar` as you wish.
 
 ## CRUSTDE in detail
 
@@ -238,19 +246,18 @@ The installation of the main programs used for CRUSTDE are described in more det
 - TeamViewer  
 - VLC  
 
-
 ## websites
 
 My websites are on a Google Linux virtual machine.  
-On my local disk, I always prepare the files and folders structure for the websites. Then I synchronize this folder with the directory on the VM.  
-It already happened that I deleted my VM on Google and had to set a new one from scratch. I wanted a clean start. So having an identical copy on my local disk is paramount.  
+On my local disk, I always prepare the files and folder structure for the websites. Then I synchronize this folder with the directory on the VM.  
+It already happened that I deleted my VM on Google and had to set up a new one from scratch. I wanted a clean start. So having an identical copy on my local disk is paramount.  
 The local folder is synced with Dropbox for backup.  
 
 ## confusion with names
 
-Sadly, it is not possible to use consistently the same "name" everywhere, because there are always some limitation what characters are allowed.  
+Sadly, it is not possible to use consistently the same "name" everywhere, because there are always some limitations on what characters are allowed.  
 Alphanumerics are allowed everywhere, but dot, hyphen, underscore are not.  
-Also uppercase and lowercase can be limited.
+Also, uppercase and lowercase can be limited.
 
 Variants of my name:
 
