@@ -189,14 +189,30 @@ If there is a conflict Dropbox will create a new file with the name containing t
 
 WezTerm is a powerful cross-platform terminal emulator and multiplexer written in Rust.  
 I prefer to use it instead of Windows Console, Windows Terminal, Xterm or Terminator.  
+
 I had a problem that using the Windows Clipboard Manager for "multi-item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications because it does not run a command if it finds a character for Enter when pasting. It waits for the user to read what is pasted and then presses Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website, there are many technics to hide visually a text but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
 <https://cirw.in/blog/bracketed-paste>  
 The Clipboard Manager is sending ctrl+v under the hood. That key combination means "the next character will be taken literally". Then shift-ctrl-v pastes the "bracketed paste" that starts with ^[[200~. But unfortunately, the first character is not understood as a special code, but as a normal character "literally".  
-Create/edit the configuration .lua file to ignore the ctrl+v key binding.  
-In the lua config file is defined that Wezterm opens by default into `WSL:Debian`.  
-On start opens 2 windows side-by-side for `WSL:Debian` and git-bash.
 
+Create/edit the configuration `wezterm.lua` file to ignore the ctrl+v key binding.  
 The template for `$HOME\.config\wezterm\wezterm.lua` is [here](configuration_files/win_files/c/Users/luciano/.config/wezterm/wezterm.lua).  
+
+After `git-bash` and `WSL:Debian` are installed create 2 icons to use Wezterm as their terminal:  
+
+Name: `git-bash`
+
+- Target: "C:\Program Files\WezTerm\wezterm-gui.exe" start -- "C:\\Program Files\\Git\\bin\\bash.exe" -l
+- Windows: Maximized
+- Icon: `%ProgramFiles%\Git\git-bash.exe`
+
+Download the Debian ico from <https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11/main/images/Debian-logo.ico> to 
+
+Name: `WSL:Debian`
+
+- Target: "C:\Program Files\WezTerm\wezterm-gui.exe" start --domain WSL:Debian
+- Windows: Maximized
+- Icon: `%ProgramFiles%\Git\git-bash.exe`
+
 
 ## CRUSTDE in detail
 
