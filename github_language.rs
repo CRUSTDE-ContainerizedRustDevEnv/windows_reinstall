@@ -1,1 +1,0 @@
-I want GitHub to show this project to be in Rust language.
