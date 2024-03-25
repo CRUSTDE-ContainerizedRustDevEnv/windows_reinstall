@@ -1,21 +1,21 @@
 [//]: # (auto_md_to_doc_comments segment start A)
 
-# development_environment
+# windows_reinstall
 
 [//]: # (auto_cargo_toml_to_md start)
 
 **Description of my Windows and Linux development environment for Rust**  
-***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/development_environment)***  
+***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-Containerized-Rust-DevEnv/windows_reinstall)***  
 
  ![tutorial](https://img.shields.io/badge/tutorial-yellow)
- ![development_environment](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
+ ![windows_reinstall](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
 
 [//]: # (auto_cargo_toml_to_md end)
 
 **WARNING !!! This is a public repository: never write or save secrets here!!!**
 
- ![logo](https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-Dev-Env/CRUSTDE-Containerized-Rust-Dev-Env/main/images/crustde_250x250.png)
- development_environment is a member of the [CRUSTDE-Containerized-Rust-Dev-Env](https://github.com/orgs/CRUSTDE-Containerized-Rust-Dev-Env/repositories?q=sort%3Aname-asc) project.
+ ![logo](https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-DevEnv/CRUSTDE-Containerized-Rust-DevEnv/main/images/crustde_250x250.png)
+ windows_reinstall is a member of the [CRUSTDE-Containerized-Rust-DevEnv](https://github.com/orgs/CRUSTDE-Containerized-Rust-DevEnv/repositories?q=sort%3Aname-asc) project.
 
 Hashtags: #rustlang #tutorial #buildtool #developmenttool  
 My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
@@ -142,7 +142,7 @@ A bunch of programs must be installed for a usable machine for development.
 
 ## TotalCmd
 
-To Install and configure TotalCmd follow the instructions: <https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/total_commander_best_file_manager>  
+To Install and configure TotalCmd follow the instructions: <https://github.com/CRUSTDE-Containerized-Rust-DevEnv/total_commander_best_file_manager>  
 
 ## Firefox
 
@@ -201,7 +201,7 @@ After `git-bash` and `WSL:Debian` are installed create 2 icons on the Desktop to
 Download the Debian ico in `git-bash`:
 
 ```bash
-curl https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11/main/images/Debian-logo.ico -o ~/.config/wezterm/Debian-logo.ico
+curl https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-DevEnv/win10_wsl2_debian11/main/images/Debian-logo.ico -o ~/.config/wezterm/Debian-logo.ico
 ```
 
 Icon name: `git-bash`
@@ -218,15 +218,15 @@ Icon name: `WSL:Debian`
 
 The icons on the Desktop should look like this:
 
-![Icons on Desktop](https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-Dev-Env/development_environment/main/images/Wezterm_git_bash_wsl_debian.png)
+![Icons on Desktop](https://raw.githubusercontent.com/CRUSTDE-Containerized-Rust-DevEnv/windows_reinstall/main/images/Wezterm_git_bash_wsl_debian.png)
 
 You can now `Pin to start` or `Pin to taskbar` as you wish.
 
 ## CRUSTDE in detail
 
 The installation of the main programs used for CRUSTDE are described in more detail here:
-<https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/win_git_git-bash_ssh_VSCode>
-<https://github.com/CRUSTDE-Containerized-Rust-Dev-Env/win10_wsl2_debian11>
+<https://github.com/CRUSTDE-Containerized-Rust-DevEnv/win_git_git-bash_ssh_VSCode>
+<https://github.com/CRUSTDE-Containerized-Rust-DevEnv/win10_wsl2_debian11>
 
 ## Other programs
 
