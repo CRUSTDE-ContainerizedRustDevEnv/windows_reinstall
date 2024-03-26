@@ -1,16 +1,10 @@
-[//]: # (auto_md_to_doc_comments segment start A)
-
 # windows_reinstall
 
-[//]: # (auto_cargo_toml_to_md start)
-
-**Description of my Windows and Linux development environment for Rust**  
+**Description of my Windows OS prepared for Rust development in Linux**  
 ***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/windows_reinstall)***  
 
  ![tutorial](https://img.shields.io/badge/tutorial-yellow)
  ![windows_reinstall](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
-
-[//]: # (auto_cargo_toml_to_md end)
 
 **WARNING !!! This is a public repository: never write or save secrets here!!!**
 
@@ -280,5 +274,3 @@ So I can drink a free beer for your health :-)
 [//github.com/bestia-dev](https://github.com/bestia-dev)  
 [//bestiadev.substack.com](https://bestiadev.substack.com)  
 [//youtube.com/@bestia-dev-tutorials](https://youtube.com/@bestia-dev-tutorials)  
-
-[//]: # (auto_md_to_doc_comments segment end A)
