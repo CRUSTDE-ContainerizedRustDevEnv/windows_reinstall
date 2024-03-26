@@ -183,6 +183,7 @@ If there is a conflict Dropbox will create a new file with the name containing t
 
 WezTerm is a powerful cross-platform terminal emulator and multiplexer written in Rust.  
 I prefer to use it instead of Windows Console, Windows Terminal, Xterm or Terminator.  
+Install Wezterm from [here](https://wezfurlong.org/wezterm/install/windows.html).  
 
 I had a problem that using the Windows Clipboard Manager for "multi-item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications because it does not run a command if it finds a character for Enter when pasting. It waits for the user to read what is pasted and then presses Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website, there are many technics to hide visually a text but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
 <https://cirw.in/blog/bracketed-paste>  
@@ -218,27 +219,28 @@ You can now `Pin to start` or `Pin to taskbar` as you wish.
 
 ## CRUSTDE in detail
 
-The installation of the main programs used for CRUSTDE are described in more detail here:
-<https://github.com/CRUSTDE-ContainerizedRustDevEnv/win_git_git_bash_ssh_VSCode>
-<https://github.com/CRUSTDE-ContainerizedRustDevEnv/win10_wsl2_debian11>
+The installation of the main programs used for CRUSTDE are described in more detail here:  
+
+- git, git-bash, SSH and VSCdoe <https://github.com/CRUSTDE-ContainerizedRustDevEnv/win_git_git_bash_ssh_VSCode>  
+- WSL2 and Debian on Windows <https://github.com/CRUSTDE-ContainerizedRustDevEnv/win10_wsl2_debian11>  
 
 ## Other programs
 
 - paint.net <https://www.getpaint.net/>
 - Notepad++ <https://notepad-plus-plus.org/downloads/>
 - Shotcut <https://shotcut.org/>
-- IrfanView  
-- OBS studio  
-- Android Studio  
-- Krita  
-- Arduino  
-- Calibre  
-- Audacity  
-- Inkspace  
-- PhotoFilmStrip  
-- qBittorent  
-- TeamViewer  
-- VLC  
+- IrfanView <https://www.irfanview.com/main_download_engl.htm>
+- OBS studio <https://obsproject.com/download>
+- Android Studio <https://developer.android.com/studio>
+- Krita <https://krita.org/en/download/>
+- Arduino <https://www.arduino.cc/en/software>
+- Calibre <https://calibre-ebook.com/download>
+- Audacity <https://www.audacityteam.org/download/>
+- Inkspace <https://inkscape.org/>
+- PhotoFilmStrip <https://www.photofilmstrip.org/en/download/>
+- qBittorent <https://www.qbittorrent.org/download>
+- TeamViewer <https://www.teamviewer.com/en/download/windows/>
+- VLC <https://www.videolan.org/>
 
 ## websites
 
@@ -256,10 +258,11 @@ Also, uppercase and lowercase can be limited.
 Variants of my name:
 
 bestia.dev - domain name and primary, preferred name  
+info.bestia.dev at gmail.com  (bestia.dev is NOT available 2024-03, but it is not in use?!?)  
 info at bestia.dev - email address is forwarded to info.bestia.dev at gmail.com  
 bestiadev  - docker  
 bestia-dev - GitHub (bestiadev is NOT available 2024-03, dot and underscore are not allowed)  
-info.bestia.dev at gmail.com  (bestia.dev is NOT available 2024-03, but it is not in use?!?)  
+
 
 ## Open-source and free as a beer
 
