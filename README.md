@@ -196,7 +196,7 @@ After `git-bash` and `WSL:Debian` are installed create 2 icons on the Desktop to
 Download the Debian ico in `git-bash`:
 
 ```bash
-curl https://raw.githubusercontent.com/CRUSTDE-ContainerizedRustDevEnv/win10_wsl2_debian11/main/images/Debian-logo.ico -o ~/.config/wezterm/Debian-logo.ico
+curl https://raw.githubusercontent.com/CRUSTDE-ContainerizedRustDevEnv/win10_wsl2_debian11/main/images/Debian_logo.ico -o ~/.config/wezterm/Debian_logo.ico
 ```
 
 Icon name: `git-bash`
@@ -209,7 +209,7 @@ Icon name: `WSL:Debian`
 
 - Target: "C:\Program Files\WezTerm\wezterm-gui.exe" start --domain WSL:Debian
 - Windows: Maximized
-- Icon: `%UserProfile%\.config\wezterm\Debian-logo.ico`
+- Icon: `%UserProfile%\.config\wezterm\Debian_logo.ico`
 
 The icons on the Desktop should look like this:
 
