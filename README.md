@@ -1,7 +1,7 @@
 # windows_reinstall
 
 **Description of my Windows OS prepared for Rust development in Linux**  
-***version: 2022.421.1347 date: 2022-05-12 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/windows_reinstall)***  
+***version: 2024.326.1347 date: 2024-03-26 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/windows_reinstall)***  
 
  ![tutorial](https://img.shields.io/badge/tutorial-yellow)
  ![windows_reinstall](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
