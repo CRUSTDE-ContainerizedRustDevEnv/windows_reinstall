@@ -15,5 +15,5 @@ LICENSE text eol=lf
 .gitignore text eol=lf
 .gitattributes text eol=lf
 
-# Exclude these files from Github’s Linguist tool 
-*.lua linguist-vendored
+# Github’s Linguist tool: force Rust if Cargo.toml exists
+Cargo.toml linguist-language=Rust
