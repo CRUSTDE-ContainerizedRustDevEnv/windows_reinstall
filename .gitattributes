@@ -17,3 +17,6 @@ LICENSE text eol=lf
 
 # Github’s Linguist tool: force Rust if Cargo.toml exists
 Cargo.toml linguist-language=Rust
+
+# Exclude these files from Github’s Linguist tool 
+*.lua linguist-vendored
