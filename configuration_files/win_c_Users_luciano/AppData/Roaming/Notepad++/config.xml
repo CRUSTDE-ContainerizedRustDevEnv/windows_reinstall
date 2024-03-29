@@ -2,16 +2,17 @@
 <NotepadPlus>
     <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" fifProjectPanel1="no" fifProjectPanel2="no" fifProjectPanel3="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no" regexBackward4PowerUser="no" bookmarkLine="no" purge="no">
         <Filter name="" />
+        <Find name="proxy" />
+        <Find name="squid" />
+        <Find name="cache" />
+        <Find name="error" />
+        <Find name="copy" />
+        <Find name="path" />
+        <Find name="copy pat" />
+        <Find name="\" />
+        <Find name="access" />
         <Find name="transl" />
-        <Find name="trans" />
-        <Find name="luciano" />
-        <Find name="c:" />
-        <Find name="c/" />
-        <Find name="/" />
-        <Find name="git" />
-        <Find name="ssh" />
-        <Find name="wsl" />
-        <Find name=";" />
+        <Replace name="/" />
         <Replace name="\" />
         <Replace name='bgColor=&quot;262626&quot;' />
         <Replace name="1.73.0" />
@@ -28,6 +29,7 @@
         <File filename="C:\Users\luciano\Downloads\X1Carbon2024.md" />
         <File filename="D:\Dropbox\BestiaDev\github_backup\authentication_database_web_ui\README.md" />
         <File filename="C:\Program Files\Notepad++\change.log" />
+        <File filename="C:\Users\luciano\Documents\current_note_1.md" />
     </History>
     <ProjectPanels>
         <ProjectPanel id="0" workSpaceFile="" />
