@@ -1,0 +1,8 @@
+[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup_active/"]
+  path = .gitconfig-bestia-dev
+[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup_archived/"]
+  path = .gitconfig-bestia-dev
+[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup_private_archived/"]
+  path = .gitconfig-bestia-dev
+[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup_GuitaraokeLeader/"]
+  path = .gitconfig-GuitaraokeLeader
