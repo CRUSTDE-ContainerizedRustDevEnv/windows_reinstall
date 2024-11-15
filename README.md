@@ -9,6 +9,7 @@
 **WARNING !!! This is a public repository: never write or save secrets here!!!**
 
  ![logo](https://raw.githubusercontent.com/CRUSTDE-ContainerizedRustDevEnv/CRUSTDE_Containerized_Rust_DevEnv/main/images/crustde_250x250.png)
+
  windows_reinstall is a member of the [CRUSTDE-ContainerizedRustDevEnv](https://github.com/orgs/CRUSTDE-ContainerizedRustDevEnv/repositories?q=sort%3Aname-asc) project.
 
  [![Lines in md](https://img.shields.io/badge/Lines_in_markdown-280-green.svg)](https://github.com/CRUSTDE-ContainerizedRustDevEnv/windows_reinstall/)
@@ -16,7 +17,7 @@
 Hashtags: #rustlang #tutorial #buildtool #developmenttool  
 My projects on GitHub are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
 
-## Win installation 2023
+## Win installation 2024
 
 Often we must reinstall Windows from scratch to solve some unsolvable problems.  
 Thanks, Microsoft!  
@@ -24,24 +25,33 @@ This is a good exercise. We must learn how to save settings for different progra
 
 ## About my notebook
 
-IdeaPad Flex5 14ARE05  
-Processor AMD Ryzen 5 4500U with Radeon Graphics 2.38 GHz  
-Installed RAM 16,0 GB (15,4 GB usable)  
-System type 64-bit operating system, x64-based processor  
+Asus Zenbook 14  
+Intel Core Ultra 7 155H, 16 cores, 22 threads  
+6 Performance-cores 1.4 GHz to 4.80 GHz  
+8 Efficient-cores 900 MHz to 3.8 GHz  
+2 Low Power Efficient-cores 2.5 GHz  
+24 MB Intel® Smart Cache  
+28 W to 115 W  
+Intel® Arc™ graphics 8 Xe-cores  
+Intel® Thunderbolt™ 4  
+Installed RAM 32,0 GB  
+SSD 1TB (M.2 NVMe™ PCIe® 4.0)  
+OLED 16:10, FHD (1920x1200) HDR, DCI-P3:100%, 600 nits, 60Hz
 
 ## Windows
 
-Edition Windows 10 Pro  
-Version 22H2  
-OS build 19045.3570  
-Activation: Windows is activated with a digital license linked to your Microsoft account
+Windows 11 Home 23H2  
+Activation: Windows is activated with a digital license
 
 I split my SSD into partitions `C:` and `D:`. Every time I reinstall Windows I completely format the `C:` partition, but the `D:` partition remains intact.  
-I have the Dropbox folder on my `D:` partition. So it will survive the reinstallation of Windows. It is also better for backups to have separate system and data disks.  
+I have the Dropbox folder on my `D:` partition. All my data is there. So it will survive the reinstallation of Windows. It is also better for backups to have separate system and data disks.  
 
-## System backup win10
+## System backup win11
 
 Backup, backup, backup... Do it all the time. Disks can die in an instant and you lose everything.  
+My external disk is not NTFS, so the original windows backup function does not work.
+I will try with clonezilla.
+
 It is funny that in Win10, the name of this function is "Backup and Restore (Windows 7)".  
 Open the System Backup Image Tool. In Windows 10, head to Control Panel > Backup and Restore (Windows 7) > Create a System Image onto an external disk.  
 A system image contains everything: data, programs, OS, config,... from the `C:` drive.  
