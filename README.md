@@ -4,6 +4,7 @@
 ***version: 2024.326.1347 date: 2024-03-26 author: [bestia.dev](https://bestia.dev) repository: [GitHub](https://github.com/CRUSTDE-ContainerizedRustDevEnv/windows_reinstall)***  
 
  ![tutorial](https://img.shields.io/badge/tutorial-yellow)
+ ![License](https://img.shields.io/badge/license-MIT-blue.svg)
  ![windows_reinstall](https://bestia.dev/webpage_hit_counter/get_svg_image/641758399.svg)
 
 **WARNING !!! This is a public repository: never write or save secrets here!!!**
