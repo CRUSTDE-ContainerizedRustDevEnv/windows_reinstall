@@ -9,7 +9,7 @@
 
 **WARNING !!! This is a public repository: never write or save secrets here!!!**
 
- ![logo](https://raw.githubusercontent.com/CRUSTDE-ContainerizedRustDevEnv/CRUSTDE_Containerized_Rust_DevEnv/main/images/crustde_250x250.png)
+ ![logo](https://raw.githubusercontent.com/CRUSTDE-ContainerizedRustDevEnv/.github/main/images/crustde_250x250.png)
 
  windows_reinstall is a member of the [CRUSTDE-ContainerizedRustDevEnv](https://github.com/orgs/CRUSTDE-ContainerizedRustDevEnv/repositories?q=sort%3Aname-asc) project.
 
