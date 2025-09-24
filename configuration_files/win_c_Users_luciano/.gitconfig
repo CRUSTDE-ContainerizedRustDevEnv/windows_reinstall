@@ -1,8 +1,19 @@
-[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup_active/"]
+[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup/github_backup_active/"]
   path = .gitconfig-bestia-dev
-[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup_archived/"]
+[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup/github_backup_archived/"]
   path = .gitconfig-bestia-dev
-[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup_private_archived/"]
+[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup/github_backup_private_archived/"]
   path = .gitconfig-bestia-dev
-[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup_GuitaraokeLeader/"]
+[includeIf "gitdir/i://wsl.localhost/Debian/home/luciano/rustprojects/"]
+  path = .gitconfig-bestia-dev
+[includeIf "gitdir/i:D:/Dropbox/BestiaDev/github_backup/github_backup_GuitaraokeLeader/"]
   path = .gitconfig-GuitaraokeLeader
+[safe]
+	directory = %(prefix)///wsl.localhost/Debian/home/luciano/rustprojects/crustde_cnt_img_pod
+	directory = D:/Dropbox/BestiaDev/github_backup
+	directory = D:/Dropbox/BestiaDev/github_backup/github_backup_active
+[core]
+	ignorecase = false
+[user]
+	email = info@bestia.dev
+	name = bestia.dev
