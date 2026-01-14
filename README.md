@@ -198,9 +198,15 @@ WezTerm is a powerful cross-platform terminal emulator and multiplexer written i
 I prefer to use it instead of Windows Console, Windows Terminal, Xterm or Terminator.  
 Install Wezterm from [here](https://wezfurlong.org/wezterm/install/windows.html).  
 
-I had a problem that using the Windows Clipboard Manager for "multi-item clipboard" it prepends extra ^[[200~. This is called "bracketed paste" and is becoming standard in many terminal applications because it does not run a command if it finds a character for Enter when pasting. It waits for the user to read what is pasted and then presses Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website, there are many technics to hide visually a text but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
+I had a problem that using the Windows Clipboard Manager for "multi-item clipboard" `win+v` it prepends extra `^[[200~`. This is called "bracketed paste" and is becoming standard in many terminal applications because it does not run a command if it finds a character for Enter when pasting. It waits for the user to read what is pasted and then presses Enter manually or choose to abort the action. This is very important when copying commands from the internet. On the website, there are many technics to hide visually a text but still copy it to the clipboard. So there we go, no more WYSIWYG. Many administrators always paste text copied from the internet into a simple text editor like Notepad++. That will show all the important characters even the invisible ones if you need. From there you can copy a text that is visually correct without malicious hidden commands.  
 <https://cirw.in/blog/bracketed-paste>  
 The Clipboard Manager is sending ctrl+v under the hood. That key combination means "the next character will be taken literally". Then shift-ctrl-v pastes the "bracketed paste" that starts with ^[[200~. But unfortunately, the first character is not understood as a special code, but as a normal character "literally".  
+
+I would like to use the terminal with the shortcuts I learned in VSCode. The terminal is so old, that some shortcuts are crazy. What I changed for my opinionated workflow:
+
+- ctrl+c - Copy (like in VSCode)
+- ctrl+v - Paste (like in VSCode)
+- ctrl+q - Kill the current process (instead of ctrl+c)
 
 Create/edit the configuration `wezterm.lua` file to ignore the ctrl+v key binding.  
 The template for `$HOME\.config\wezterm\wezterm.lua` is [here](configuration_files/win_files/c/Users/luciano/.config/wezterm/wezterm.lua).  
